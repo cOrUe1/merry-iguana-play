@@ -34,21 +34,25 @@ const Index: React.FC = () => {
       ],
     },
     {
+      title: "Pouf e poltrone",
+      photos: [
+        "https://i.postimg.cc/vHtWdbq5/20250617-113839-1.png",
+        "https://i.postimg.cc/xT2K7cR0/20250617-113850-1.png",
+        "https://i.postimg.cc/nz3kZZcd/20250617-113927-1.png",
+        "https://i.postimg.cc/m2fwsdbW/20250618-101309.jpg",
+        "https://i.postimg.cc/FHF0r888/20250618-101442.jpg",
+        "https://i.postimg.cc/3NP2JwMZ/20250618-101740.jpg",
+        "https://i.postimg.cc/2jJQx0qB/20250618-101836-1.jpg",
+        "https://i.postimg.cc/N05TTTgx/20250618-102115.png",
+      ],
+    },
+    {
       title: "Comodini e comò",
       photos: [
         "https://i.postimg.cc/4yTJfCL9/20250617-113607.jpg",
         "https://i.postimg.cc/02P8hsJg/20250618-101258.jpg",
         "https://i.postimg.cc/nr8LX9zM/20250618-101320.jpg",
         "https://i.postimg.cc/CMjhv15H/20250618-101707.jpg",
-      ],
-    },
-    {
-      title: "Tavoli",
-      photos: [
-        "https://via.placeholder.com/400x300?text=Tavolo+1",
-        "https://via.placeholder.com/400x300?text=Tavolo+2",
-        "https://via.placeholder.com/400x300?text=Tavolo+3",
-        "https://via.placeholder.com/400x300?text=Tavolo+4",
       ],
     },
   ];
