@@ -34,12 +34,12 @@ const Index: React.FC = () => {
       ],
     },
     {
-      title: "Cucine",
+      title: "Comodini e comò",
       photos: [
-        "https://via.placeholder.com/400x300?text=Cucina+1",
-        "https://via.placeholder.com/400x300?text=Cucina+2",
-        "https://via.placeholder.com/400x300?text=Cucina+3",
-        "https://via.placeholder.com/400x300?text=Cucina+4",
+        "https://i.postimg.cc/4yTJfCL9/20250617-113607.jpg",
+        "https://i.postimg.cc/02P8hsJg/20250618-101258.jpg",
+        "https://i.postimg.cc/nr8LX9zM/20250618-101320.jpg",
+        "https://i.postimg.cc/CMjhv15H/20250618-101707.jpg",
       ],
     },
     {
