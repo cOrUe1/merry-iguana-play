@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
         <p className="mb-2">Whatsapp: +39 393 307 3173</p>
         <p className="mb-4">Tel fisso: +39 0577 786697</p>
         <p className="mb-4">Email: info@mobilicorazzi.it</p>
-        <p className="text-sm opacity-80">&copy; {new Date().getFullYear()} Corazzi. Tutti i diritti riservati.</p>
+        <p className="text-sm opacity-80">&copy; {new Date().getFullYear()} Corazzi Mobili & Arredo. Tutti i diritti riservati.</p>
       </div>
     </footer>
   );
