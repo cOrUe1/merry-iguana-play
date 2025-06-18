@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 
@@ -41,8 +41,8 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, photos }) => {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogPortal>
           <DialogOverlay className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center">
-            <DialogContent className="relative max-w-4xl w-full h-auto max-h-[90vh] p-0 border-none bg-background">
-              <img src={selectedImage} alt="Selected" className="w-full h-full object-contain" />
+            <DialogContent className="relative max-w-4xl w-full h-full max-h-[90vh] p-0 border-none bg-background flex items-center justify-center">
+              <img src={selectedImage} alt="Selected" className="max-w-full max-h-full object-contain" />
             </DialogContent>
           </DialogOverlay>
         </DialogPortal>

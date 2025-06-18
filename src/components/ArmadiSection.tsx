@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 
@@ -17,7 +17,7 @@ const armadiPhotos = [
   "https://i.postimg.cc/44DnmVcG/20250617-112932.jpg",
   "https://i.postimg.cc/8kHLvy1G/20250617-113018.jpg",
   "https://i.postimg.cc/wBCQW3Pd/20250617-113109.jpg",
-  "https://i.postimg.cc/8PxVNg7P/20250617-113217.jpg", // Nuova foto inserita qui
+  "https://i.postimg.cc/8PxVNg7P/20250617-113217.jpg",
   "https://i.postimg.cc/2y2vf5Hy/20250617-113138.jpg",
   "https://i.postimg.cc/PJphd3yD/20250617-113525.png",
   "https://i.postimg.cc/FsSmq675/20250617-113627.png",
@@ -31,7 +31,7 @@ const ArmadiSection: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setHighlightedIndex((prevIndex) => (prevIndex + 1) % armadiPhotos.length);
-    }, 3000); // Cambia immagine ogni 3 secondi
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -43,7 +43,7 @@ const ArmadiSection: React.FC = () => {
   return (
     <section className="py-16 px-4 bg-background text-foreground">
       <h2 className="text-4xl font-bold text-center mb-12 text-primary">Armadi e scrivanie</h2>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"> {/* Changed grid-cols-1 to grid-cols-2 */}
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {armadiPhotos.map((photo, index) => (
           <Card
             key={index}
@@ -62,7 +62,6 @@ const ArmadiSection: React.FC = () => {
                 className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
               />
             </CardContent>
-            {/* Removed CardHeader and CardTitle */}
           </Card>
         ))}
       </div>
@@ -70,8 +69,8 @@ const ArmadiSection: React.FC = () => {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogPortal>
           <DialogOverlay className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center">
-            <DialogContent className="relative max-w-4xl w-full h-auto max-h-[90vh] p-0 border-none bg-background">
-              <img src={selectedImage} alt="Selected Armadio" className="w-full h-full object-contain" />
+            <DialogContent className="relative max-w-4xl w-full h-full max-h-[90vh] p-0 border-none bg-background flex items-center justify-center">
+              <img src={selectedImage} alt="Selected Armadio" className="max-w-full max-h-full object-contain" />
             </DialogContent>
           </DialogOverlay>
         </DialogPortal>
