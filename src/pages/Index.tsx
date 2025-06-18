@@ -1,16 +1,73 @@
-// Update this page (the content is just a fallback if you fail to update the page)
-
+import React from 'react';
+import Header from '@/components/Header';
+import ImageCarousel from '@/components/ImageCarousel';
+import PhotoSection from '@/components/PhotoSection';
+import Footer from '@/components/Footer';
 import { MadeWithDyad } from "@/components/made-with-dyad";
 
-const Index = () => {
+const Index: React.FC = () => {
+  // Placeholder data for generic photos
+  const genericPhotos = [
+    "https://via.placeholder.com/300x200?text=Generic+1",
+    "https://via.placeholder.com/300x200?text=Generic+2",
+    "https://via.placeholder.com/300x200?text=Generic+3",
+    "https://via.placeholder.com/300x200?text=Generic+4",
+    "https://via.placeholder.com/300x200?text=Generic+5",
+    "https://via.placeholder.com/300x200?text=Generic+6",
+    "https://via.placeholder.com/300x200?text=Generic+7",
+    "https://via.placeholder.com/300x200?text=Generic+8",
+  ];
+
+  // Placeholder data for categorized sections
+  const sectionsData = [
+    {
+      title: "Armadi",
+      photos: [
+        "https://via.placeholder.com/400x300?text=Armadio+1",
+        "https://via.placeholder.com/400x300?text=Armadio+2",
+        "https://via.placeholder.com/400x300?text=Armadio+3",
+        "https://via.placeholder.com/400x300?text=Armadio+4",
+      ],
+    },
+    {
+      title: "Letti",
+      photos: [
+        "https://via.placeholder.com/400x300?text=Letto+1",
+        "https://via.placeholder.com/400x300?text=Letto+2",
+        "https://via.placeholder.com/400x300?text=Letto+3",
+        "https://via.placeholder.com/400x300?text=Letto+4",
+      ],
+    },
+    {
+      title: "Cucine",
+      photos: [
+        "https://via.placeholder.com/400x300?text=Cucina+1",
+        "https://via.placeholder.com/400x300?text=Cucina+2",
+        "https://via.placeholder.com/400x300?text=Cucina+3",
+        "https://via.placeholder.com/400x300?text=Cucina+4",
+      ],
+    },
+    {
+      title: "Tavoli",
+      photos: [
+        "https://via.placeholder.com/400x300?text=Tavolo+1",
+        "https://via.placeholder.com/400x300?text=Tavolo+2",
+        "https://via.placeholder.com/400x300?text=Tavolo+3",
+        "https://via.placeholder.com/400x300?text=Tavolo+4",
+      ],
+    },
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">
-          Start building your amazing project here!
-        </p>
-      </div>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow">
+        <ImageCarousel photos={genericPhotos} />
+        {sectionsData.map((section, index) => (
+          <PhotoSection key={index} title={section.title} photos={section.photos} />
+        ))}
+      </main>
+      <Footer />
       <MadeWithDyad />
     </div>
   );
