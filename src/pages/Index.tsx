@@ -9,14 +9,13 @@ import { MadeWithDyad } from "@/components/made-with-dyad";
 const Index: React.FC = () => {
   // Placeholder data for generic photos
   const genericPhotos = [
-    "https://via.placeholder.com/300x200?text=Generic+1",
-    "https://via.placeholder.com/300x200?text=Generic+2",
-    "https://via.placeholder.com/300x200?text=Generic+3",
-    "https://via.placeholder.com/300x200?text=Generic+4",
-    "https://via.placeholder.com/300x200?text=Generic+5",
-    "https://via.placeholder.com/300x200?text=Generic+6",
-    "https://via.placeholder.com/300x200?text=Generic+7",
-    "https://via.placeholder.com/300x200?text=Generic+8",
+    "https://i.postimg.cc/MK3RPvMr/20250617-111933.jpg",
+    "https://i.postimg.cc/wBCQW3Pd/20250617-113109.jpg",
+    "https://i.postimg.cc/pTCj8Bwy/20250617-112328.jpg",
+    "https://i.postimg.cc/QCMTqTDm/20250617-112425.jpg",
+    "https://i.postimg.cc/xT2K7cR0/20250617-113850-1.png",
+    "https://i.postimg.cc/3NP2JwMZ/20250618-101740.jpg",
+    "https://i.postimg.cc/8PxVNg7P/20250617-113217.jpg",
   ];
 
   // Placeholder data for categorized sections (excluding Armadi, now handled by ArmadiSection)
