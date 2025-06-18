@@ -22,7 +22,7 @@ const Index: React.FC = () => {
   // Placeholder data for categorized sections (excluding Armadi, now handled by ArmadiSection)
   const sectionsData = [
     {
-      title: "Comodini e comò", // Changed from "Letti"
+      title: "Letti",
       photos: [
         "https://i.postimg.cc/pTCj8Bwy/20250617-112328.jpg",
         "https://i.postimg.cc/B64DXzwd/20250617-112358.jpg",
