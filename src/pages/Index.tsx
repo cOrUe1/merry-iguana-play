@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import ImageCarousel from '@/components/ImageCarousel';
 import PhotoSection from '@/components/PhotoSection';
 import Footer from '@/components/Footer';
-import ArmadiSection from '@/components/ArmadiSection'; // Import the new component
+import ArmadiSection from '@/components/ArmadiSection';
 import { MadeWithDyad } from "@/components/made-with-dyad";
 
 const Index: React.FC = () => {
@@ -24,10 +24,13 @@ const Index: React.FC = () => {
     {
       title: "Letti",
       photos: [
-        "https://via.placeholder.com/400x300?text=Letto+1",
-        "https://via.placeholder.com/400x300?text=Letto+2",
-        "https://via.placeholder.com/400x300?text=Letto+3",
-        "https://via.placeholder.com/400x300?text=Letto+4",
+        "https://i.postimg.cc/pTCj8Bwy/20250617-112328.jpg",
+        "https://i.postimg.cc/B64DXzwd/20250617-112358.jpg",
+        "https://i.postimg.cc/QCMTqTDm/20250617-112425.jpg",
+        "https://i.postimg.cc/G2xFKRyL/20250617-113009.jpg",
+        "https://i.postimg.cc/fWHXRB7r/20250617-113502.png",
+        "https://i.postimg.cc/0jHJXy2s/20250618-101402.jpg",
+        "https://i.postimg.cc/7YfzG0mY/Chat-GPT-Image-18-giu-2025-11-40-37.png",
       ],
     },
     {
@@ -55,7 +58,7 @@ const Index: React.FC = () => {
       <Header />
       <main className="flex-grow">
         <ImageCarousel photos={genericPhotos} />
-        <ArmadiSection /> {/* Use the new ArmadiSection component here */}
+        <ArmadiSection />
         {sectionsData.map((section, index) => (
           <PhotoSection key={index} title={section.title} photos={section.photos} />
         ))}
