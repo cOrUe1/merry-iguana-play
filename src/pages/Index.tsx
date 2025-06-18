@@ -36,7 +36,6 @@ const Index: React.FC = () => {
       photos: [
         "https://i.postimg.cc/vHtWdbq5/20250617-113839-1.png",
         "https://i.postimg.cc/xT2K7cR0/20250617-113850-1.png",
-        "https://i.postimg.cc/T36csbF9/Picsart-25-06-18-15-14-28-110.jpg", // Nuova foto
         "https://i.postimg.cc/m2fwsdbW/20250618-101309.jpg",
         "https://i.postimg.cc/FHF0r888/20250618-101442.jpg",
         "https://i.postimg.cc/3NP2JwMZ/20250618-101740.jpg",
