@@ -14,6 +14,9 @@ const Header: React.FC = () => {
       <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
         Abbiamo deciso di lasciare spazio al nuovo, ma chi coglie l’occasione adesso, porta a casa arredo di design, <em>montato da noi</em>, pronto per casa tua, <em>da subito</em>… e a un <em>prezzo irripetibile</em>.
       </p>
+      <p className="text-2xl md:text-3xl font-bold text-primary mb-8">
+          Sconti fino al <span className="text-4xl md:text-5xl font-extrabold">70%</span>
+        </p>
     </header>
   );
 };
