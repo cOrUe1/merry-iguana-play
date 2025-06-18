@@ -58,7 +58,7 @@ const ArmadiSection: React.FC = () => {
               <img
                 src={photo}
                 alt={`Armadio photo ${index + 1}`}
-                className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105" {/* Changed h-64 to h-48 */}
+                className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
               />
             </CardContent>
             <CardHeader>
