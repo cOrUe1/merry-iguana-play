@@ -8,7 +8,7 @@ const Header: React.FC = () => {
         alt="Mobili Corazzi Logo"
         className="mx-auto mb-6 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto"
       />
-      <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 text-primary">
+      <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 text-primary font-serif">
         FUORI TUTTO CAMERE
       </h2>
       <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
