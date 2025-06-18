@@ -9,7 +9,6 @@ import { MadeWithDyad } from "@/components/made-with-dyad";
 const Index: React.FC = () => {
   // Placeholder data for generic photos
   const genericPhotos = [
-    "https://i.postimg.cc/MK3RPvMr/20250617-111933.jpg",
     "https://i.postimg.cc/wBCQW3Pd/20250617-113109.jpg",
     "https://i.postimg.cc/pTCj8Bwy/20250617-112328.jpg",
     "https://i.postimg.cc/QCMTqTDm/20250617-112425.jpg",
