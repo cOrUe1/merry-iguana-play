@@ -42,7 +42,7 @@ const ArmadiSection: React.FC = () => {
   return (
     <section className="py-16 px-4 bg-background text-foreground">
       <h2 className="text-4xl font-bold text-center mb-12 text-primary">Armadi</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"> {/* Changed grid-cols-1 to grid-cols-2 */}
         {armadiPhotos.map((photo, index) => (
           <Card
             key={index}
@@ -61,9 +61,7 @@ const ArmadiSection: React.FC = () => {
                 className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
               />
             </CardContent>
-            <CardHeader>
-              <CardTitle className="text-lg font-semibold text-center">Armadio - {index + 1}</CardTitle>
-            </CardHeader>
+            {/* Removed CardHeader and CardTitle */}
           </Card>
         ))}
       </div>
