@@ -110,5 +110,5 @@
 }
 
 .animate-scroll-left {
-  animation: scroll-left 40s linear infinite; /* Adjust time for speed */
+  animation: scroll-left 30s linear infinite; /* Adjust time for speed */
 }

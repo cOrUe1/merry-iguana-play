@@ -41,7 +41,7 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, photos }) => {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogPortal>
           <DialogOverlay className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center">
-            <DialogContent className="relative max-w-4xl w-full h-auto max-h-[90vh] p-0 border-none bg-transparent">
+            <DialogContent className="relative max-w-4xl w-full h-auto max-h-[90vh] p-0 border-none">
               <img src={selectedImage} alt="Selected" className="w-full h-full object-contain" />
             </DialogContent>
           </DialogOverlay>
