@@ -4,7 +4,6 @@ import ImageCarousel from '@/components/ImageCarousel';
 import PhotoSection from '@/components/PhotoSection';
 import Footer from '@/components/Footer';
 import ArmadiSection from '@/components/ArmadiSection';
-import { MadeWithDyad } from "@/components/made-with-dyad";
 
 const Index: React.FC = () => {
   // Placeholder data for generic photos
@@ -65,7 +64,6 @@ const Index: React.FC = () => {
         ))}
       </main>
       <Footer />
-      <MadeWithDyad />
     </div>
   );
 };
