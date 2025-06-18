@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 
 const armadiPhotos = [
@@ -25,8 +24,6 @@ const armadiPhotos = [
 
 const ArmadiSection: React.FC = () => {
   const [highlightedIndex, setHighlightedIndex] = useState(0);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState('');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,11 +31,6 @@ const ArmadiSection: React.FC = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
-
-  const openLightbox = (photoUrl: string) => {
-    setSelectedImage(photoUrl);
-    setIsDialogOpen(true);
-  };
 
   return (
     <section className="py-16 px-4 bg-background text-foreground">
@@ -48,12 +40,12 @@ const ArmadiSection: React.FC = () => {
           <Card
             key={index}
             className={cn(
-              "overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 cursor-pointer",
+              "overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500", // Removed cursor-pointer
               {
                 "ring-4 ring-primary scale-105": index === highlightedIndex,
               }
             )}
-            onClick={() => openLightbox(photo)}
+            // Removed onClick handler
           >
             <CardContent className="p-0">
               <img
@@ -65,16 +57,6 @@ const ArmadiSection: React.FC = () => {
           </Card>
         ))}
       </div>
-
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogPortal>
-          <DialogOverlay className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center">
-            <DialogContent className="relative max-w-4xl w-full h-full max-h-[90vh] p-0 border-none bg-background flex items-center justify-center">
-              <img src={selectedImage} alt="Selected Armadio" className="max-w-full max-h-full object-contain" />
-            </DialogContent>
-          </DialogOverlay>
-        </DialogPortal>
-      </Dialog>
     </section>
   );
 };

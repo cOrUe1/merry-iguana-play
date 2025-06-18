@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react'; // Removed useState
 import { Card, CardContent } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogOverlay, DialogPortal } from '@/components/ui/dialog';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'; // cn is not used anymore, but keeping it for consistency
 
 interface PhotoSectionProps {
   title: string;
@@ -9,14 +8,6 @@ interface PhotoSectionProps {
 }
 
 const PhotoSection: React.FC<PhotoSectionProps> = ({ title, photos }) => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState('');
-
-  const openLightbox = (photoUrl: string) => {
-    setSelectedImage(photoUrl);
-    setIsDialogOpen(true);
-  };
-
   return (
     <section className="py-16 px-4 bg-background text-foreground">
       <h2 className="text-4xl font-bold text-center mb-12 text-primary">{title}</h2>
@@ -24,8 +15,8 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, photos }) => {
         {photos.map((photo, index) => (
           <Card
             key={index}
-            className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-            onClick={() => openLightbox(photo)}
+            className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300" // Removed cursor-pointer
+            // Removed onClick handler
           >
             <CardContent className="p-0">
               <img
@@ -37,16 +28,6 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, photos }) => {
           </Card>
         ))}
       </div>
-
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogPortal>
-          <DialogOverlay className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center">
-            <DialogContent className="relative max-w-4xl w-full h-full max-h-[90vh] p-0 border-none bg-background flex items-center justify-center">
-              <img src={selectedImage} alt="Selected" className="max-w-full max-h-full object-contain" />
-            </DialogContent>
-          </DialogOverlay>
-        </DialogPortal>
-      </Dialog>
     </section>
   );
 };
