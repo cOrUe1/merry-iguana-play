@@ -51,7 +51,13 @@ const armadiProducts: Product[] = [
     coverPhoto: "https://i.postimg.cc/wBCQW3Pd/20250617-113109.jpg",
     title: "Armadio con Ante Scorrevoli",
     description: "Soluzione salvaspazio con ante scorrevoli, perfetta per ambienti moderni. Massima capienza e facilità d'uso.",
-    additionalPhotos: ["https://i.postimg.cc/wBCQW3Pd/20250617-113109.jpg"],
+    additionalPhotos: [
+      "https://i.postimg.cc/YS0V90LY/20250617-113018.jpg",
+      "https://i.postimg.cc/tC0HM3Zf/20250617-113127.jpg",
+      "https://i.postimg.cc/WbcQnsxc/20250617-113138.jpg",
+      "https://i.postimg.cc/Rh5bXTsL/20250617-113217.jpg",
+      "https://i.postimg.cc/wBCQW3Pd/20250617-113109.jpg", // Includo anche la cover tra le foto aggiuntive
+    ],
   },
 ];
 
