@@ -21,7 +21,6 @@ const armadiProducts: Product[] = [
       "https://i.postimg.cc/XNHp3tjr/20250617-112913.jpg",
       "https://i.postimg.cc/RZR0sYDC/20250617-112543.jpg",
       "https://i.postimg.cc/44DnmVcG/20250617-112932.jpg", // Includo anche la cover tra le foto aggiuntive
-      "https://i.postimg.cc/66L5nW4b/20250619-163026.jpg", // Nuova foto aggiunta
     ],
   },
   {
@@ -34,7 +33,6 @@ const armadiProducts: Product[] = [
       "https://i.postimg.cc/V6J6P2Q1/20250617-112106.jpg",
       "https://i.postimg.cc/nLRz5pW0/20250617-112142.jpg",
       "https://i.postimg.cc/Gp82ZZ1R/20250617-111945.jpg", // Includo anche la cover tra le foto aggiuntive
-      "https://i.postimg.cc/yxP1HjzC/20250619-163750.jpg", // Nuova foto aggiunta
     ],
   },
   {
@@ -59,8 +57,6 @@ const armadiProducts: Product[] = [
       "https://i.postimg.cc/WbcQnsxc/20250617-113138.jpg",
       "https://i.postimg.cc/Rh5bXTsL/20250617-113217.jpg",
       "https://i.postimg.cc/wBCQW3Pd/20250617-113109.jpg", // Includo anche la cover tra le foto aggiuntive
-      "https://i.postimg.cc/KYk8Mttt/20250619-163332.jpg", // Nuova foto aggiunta
-      "https://i.postimg.cc/mkRLJqJS/20250619-163341.jpg", // Nuova foto aggiunta
     ],
   },
 ];
