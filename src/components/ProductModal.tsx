@@ -18,6 +18,9 @@ interface ProductModalProps {
 const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose, product }) => {
   if (!product) return null;
 
+  // Combine cover photo with additional photos for the carousel
+  const allPhotos = [product.coverPhoto, ...product.additionalPhotos];
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[800px] max-h-[90vh] overflow-y-auto">
@@ -28,7 +31,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose, product })
           </DialogDescription>
         </DialogHeader>
         <div className="py-4">
-          <ProductImageCarousel photos={product.additionalPhotos} />
+          <ProductImageCarousel photos={allPhotos} />
         </div>
       </DialogContent>
     </Dialog>
