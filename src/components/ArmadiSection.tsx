@@ -36,10 +36,16 @@ const armadiProducts: Product[] = [
     ],
   },
   {
-    coverPhoto: "https://i.postimg.cc/NjhGjcWj/20250617-112106.jpg",
+    coverPhoto: "https://i.postimg.cc/wxXsPvyq/20250619-092826.jpg",
     title: "Scrivania Funzionale",
     description: "Scrivania compatta e robusta, ideale per lo studio o l'ufficio domestico. Offre ampio spazio di lavoro e un design ergonomico.",
-    additionalPhotos: ["https://i.postimg.cc/NjhGjcWj/20250617-112106.jpg"],
+    additionalPhotos: [
+      "https://i.postimg.cc/WbtTZYPB/20250619-092534.jpg",
+      "https://i.postimg.cc/nhJxWFmJ/20250619-092551.jpg",
+      "https://i.postimg.cc/43RgrJhG/20250619-092643.jpg",
+      "https://i.postimg.cc/R0CBMgGp/20250619-092804-1.png",
+      "https://i.postimg.cc/wxXsPvyq/20250619-092826.jpg", // Includo anche la cover tra le foto aggiuntive
+    ],
   },
   {
     coverPhoto: "https://i.postimg.cc/wBCQW3Pd/20250617-113109.jpg",
