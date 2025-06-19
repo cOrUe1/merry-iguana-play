@@ -59,18 +59,14 @@ const Index: React.FC = () => {
     },
     {
       title: "Pouf e poltrone",
-      products: [ // Changed from photos to products
+      products: [
         {
-          coverPhoto: "https://i.postimg.cc/vHtWdbq5/20250617-113839-1.png",
-          title: "Pouf Confortevole",
-          description: "Un pouf morbido e versatile, ideale per un tocco di comfort in ogni stanza.",
-          additionalPhotos: [],
-        },
-        {
-          coverPhoto: "https://i.postimg.cc/xT2K7cR0/20250617-113850-1.png",
+          coverPhoto: "https://i.postimg.cc/xT2K7cR0/20250617-113850-1.png", // Second photo as cover
           title: "Poltrona Relax",
           description: "Una poltrona avvolgente per i tuoi momenti di relax.",
-          additionalPhotos: [],
+          additionalPhotos: [
+            "https://i.postimg.cc/vHtWdbq5/20250617-113839-1.png", // First photo as additional
+          ],
         },
         {
           coverPhoto: "https://i.postimg.cc/m2fwsdbW/20250618-101309.jpg",
@@ -106,7 +102,7 @@ const Index: React.FC = () => {
     },
     {
       title: "Comodini e comò",
-      products: [ // Changed from photos to products
+      products: [
         {
           coverPhoto: "https://i.postimg.cc/4yTJfCL9/20250617-113607.jpg",
           title: "Comodino Funzionale",
