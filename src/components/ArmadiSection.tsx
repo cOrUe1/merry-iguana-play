@@ -24,10 +24,16 @@ const armadiProducts: Product[] = [
     ],
   },
   {
-    coverPhoto: "https://i.postimg.cc/MK3RPvMr/20250617-111933.jpg",
+    coverPhoto: "https://i.postimg.cc/Gp82ZZ1R/20250617-111945.jpg",
     title: "Armadio Elegante",
     description: "Design raffinato e linee pulite per un armadio che si adatta a ogni stile. Perfetto per chi cerca eleganza e praticità.",
-    additionalPhotos: ["https://i.postimg.cc/MK3RPvMr/20250617-111933.jpg"],
+    additionalPhotos: [
+      "https://i.postimg.cc/SQZrrMVM/20250617-111933.jpg",
+      "https://i.postimg.cc/WzMqxxgz/20250617-111958-1.png",
+      "https://i.postimg.cc/V6J6P2Q1/20250617-112106.jpg",
+      "https://i.postimg.cc/nLRz5pW0/20250617-112142.jpg",
+      "https://i.postimg.cc/Gp82ZZ1R/20250617-111945.jpg", // Includo anche la cover tra le foto aggiuntive
+    ],
   },
   {
     coverPhoto: "https://i.postimg.cc/NjhGjcWj/20250617-112106.jpg",
