@@ -44,7 +44,7 @@ const armadiProducts: Product[] = [
       "https://i.postimg.cc/nhJxWFmJ/20250619-092551.jpg",
       "https://i.postimg.cc/43RgrJhG/20250619-092643.jpg",
       "https://i.postimg.cc/R0CBMgGp/20250619-092804-1.png",
-      "https://i.postimg.cc/wxXsPvyq/20250619-092826.jpg", // Includo anche la cover tra le foto aggiuntive
+      "https://i.postimg.cc/yxP1HjzC/20250619-163750.jpg", // Nuova foto aggiunta
     ],
   },
   {
