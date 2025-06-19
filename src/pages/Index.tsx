@@ -90,7 +90,9 @@ const Index: React.FC = () => {
           coverPhoto: "https://i.postimg.cc/2jJQx0qB/20250618-101836-1.jpg",
           title: "Poltrona Accogliente",
           description: "Una poltrona che invita al relax con il suo design accogliente.",
-          additionalPhotos: [],
+          additionalPhotos: [
+            "https://i.postimg.cc/VLT2czXs/20250619-105022-1-1.png", // New additional photo
+          ],
         },
         {
           coverPhoto: "https://i.postimg.cc/N05TTTgx/20250618-102115.png",
