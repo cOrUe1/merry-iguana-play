@@ -24,8 +24,8 @@ const Index: React.FC = () => {
       products: [ // Changed from photos to products
         {
           coverPhoto: "https://i.postimg.cc/pTCj8Bwy/20250617-112328.jpg",
-          title: "Letto Moderno",
-          description: "Un letto dal design moderno e confortevole, perfetto per ogni camera da letto.",
+          title: "Aria da 120",
+          description: "Letto contenitore con tessuto sfoderabile e lavabile. Rete con doppia alzata per rifare il letto facilmente e sfruttare al meglio il vano interno.",
           additionalPhotos: [
             "https://i.postimg.cc/B64DXzwd/20250617-112358.jpg",
             "https://i.postimg.cc/QCMTqTDm/20250617-112425.jpg",
@@ -33,26 +33,26 @@ const Index: React.FC = () => {
         },
         {
           coverPhoto: "https://i.postimg.cc/G2xFKRyL/20250617-113009.jpg",
-          title: "Letto Classico",
-          description: "Un letto dal fascino intramontabile, ideale per un ambiente elegante.",
+          title: "Mistral da 120 abbinato alla cameretta",
+          description: "Struttura in laminato facile da pulire, testiera dinamica con colori e lunghezze alterne. Perfetto per chi cerca un letto pratico e anti-acaro, ideale per i più giovani.",
           additionalPhotos: [],
         },
         {
           coverPhoto: "https://i.postimg.cc/fWHXRB7r/20250617-113502.png",
-          title: "Letto Minimalista",
-          description: "Design pulito e essenziale per un letto che si adatta a ogni stile.",
+          title: "Poseidone da 160",
+          description: "Linee leggere e moderne, con giroletto basso e piedini alti che slanciano la struttura. Un letto che arreda con discrezione e stile.",
           additionalPhotos: [],
         },
         {
           coverPhoto: "https://i.postimg.cc/0jHJXy2s/20250618-101402.jpg",
-          title: "Letto con Contenitore",
-          description: "Massima praticità con un ampio vano contenitore, perfetto per ottimizzare lo spazio.",
+          title: "Honey da 160",
+          description: "Sembra sospeso grazie ai piedini in plexiglass trasparente: un effetto scenico che lo rende unico e leggerissimo alla vista.",
           additionalPhotos: [],
         },
         {
           coverPhoto: "https://i.postimg.cc/7YfzG0mY/Chat-GPT-Image-18-giu-2025-11-40-37.png",
-          title: "Letto Design Unico",
-          description: "Un letto che si distingue per il suo design innovativo e accattivante.",
+          title: "Dionisio cover",
+          description: "Contenitore robusto in multistrato con alzata semplice, rivestimento sfoderabile e una testiera con cover double face: tono su tono da un lato, a contrasto dall’altro.",
           additionalPhotos: [],
         },
       ],
