@@ -8,7 +8,7 @@ interface UrgencyData {
 
 const STORAGE_KEY_PREFIX = 'product_urgency_';
 const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
-const ONE_HOUR_MS = 1 * 60 * 60 * 1000; // Reverted to 1 hour
+const ONE_HOUR_MS = 1 * 60 * 60 * 1000;
 
 // Function to generate 'X' (interested people) with specified probabilities
 const generateInterestedValue = (): number => {
@@ -68,40 +68,28 @@ export const useProductUrgency = (productId: string) => {
     const now = Date.now();
     let currentData = getUrgencyData();
 
-    // Determine if an update is due for either type or if it's the first load
-    let updateIsDue = false;
-    if (currentData) {
-      if (currentData.type === 'interested' && (now - currentData.lastUpdated > THREE_DAYS_MS)) {
-        updateIsDue = true;
-      } else if (currentData.type === 'viewed' && (now - currentData.lastUpdated > ONE_HOUR_MS)) { // Use ONE_HOUR_MS
-        updateIsDue = true;
-      }
-    } else {
-      // If no data, it's effectively a "first update"
-      updateIsDue = true;
-    }
-
-    // Apply the 1 in 6 chance to remove the text, but only if an update is due or it's the first time
-    if (updateIsDue && Math.random() < 1 / 6) {
-      localStorage.removeItem(`${STORAGE_KEY_PREFIX}${productId}`);
-      setUrgencyText(null);
-      return; // Stop here, no text will be shown
-    }
-
-    // If we reach here, either no update was due, or the 1/6 chance failed, so proceed with normal logic
-
     if (!currentData) {
       // First time for this product, determine type randomly
       const typeRoll = Math.random();
       const type = typeRoll < 1 / 3 ? 'interested' : 'viewed';
+
+      // If it's 'viewed' type on first roll, apply 1/6 chance to remove
+      if (type === 'viewed' && Math.random() < 1 / 6) {
+        localStorage.removeItem(`${STORAGE_KEY_PREFIX}${productId}`);
+        setUrgencyText(null);
+        return; // No text will be shown
+      }
+
+      // Otherwise, initialize data
       currentData = {
         type,
         value: type === 'interested' ? generateInterestedValue() : generateViewedValue(),
         lastUpdated: now,
       };
       setUrgencyData(currentData);
+
     } else {
-      // Update existing data based on type and time
+      // Data already exists, check for updates based on type
       if (currentData.type === 'interested') {
         if (now - currentData.lastUpdated > THREE_DAYS_MS) {
           if (Math.random() < 0.5) { // 50% chance to update
@@ -113,20 +101,32 @@ export const useProductUrgency = (productId: string) => {
           currentData.lastUpdated = now;
           setUrgencyData(currentData);
         }
-      } else { // type === 'viewed'
-        if (now - currentData.lastUpdated > ONE_HOUR_MS) { // Use ONE_HOUR_MS
-          currentData.value = generateViewedValue();
-          currentData.lastUpdated = now;
-          setUrgencyData(currentData);
+        // No removal for 'interested' type
+      } else { // currentData.type === 'viewed'
+        if (now - currentData.lastUpdated > ONE_HOUR_MS) {
+          // Apply 1/6 chance to remove for 'viewed' type when update is due
+          if (Math.random() < 1 / 6) {
+            localStorage.removeItem(`${STORAGE_KEY_PREFIX}${productId}`);
+            setUrgencyText(null);
+            return; // No text will be shown
+          } else {
+            currentData.value = generateViewedValue();
+            currentData.lastUpdated = now;
+            setUrgencyData(currentData);
+          }
         }
       }
     }
 
-    // Set the text based on the final currentData
-    if (currentData.type === 'interested') {
-      setUrgencyText(`Persone interessate a questo elemento: ${currentData.value}`);
+    // Set the text based on the final currentData (if not removed)
+    if (currentData) { // Check if currentData is still valid after potential removal
+      if (currentData.type === 'interested') {
+        setUrgencyText(`Persone interessate a questo elemento: ${currentData.value}`);
+      } else {
+        setUrgencyText(`Visualizzato da ${currentData.value} persone nell'ultima ora`);
+      }
     } else {
-      setUrgencyText(`Visualizzato da ${currentData.value} persone nell'ultima ora`); // Changed text here
+      setUrgencyText(null); // Ensure text is null if data was removed
     }
   }, [productId, getUrgencyData, setUrgencyData]);
 
@@ -134,26 +134,18 @@ export const useProductUrgency = (productId: string) => {
     updateUrgency(); // Initial update when component mounts or productId changes
 
     const viewedIntervalId = setInterval(() => {
-      const currentData = getUrgencyData();
-      // Trigger update if it's a 'viewed' type or if there's no data yet (for initial roll)
-      if (!currentData || currentData.type === 'viewed') {
-        updateUrgency();
-      }
-    }, ONE_HOUR_MS); // Check every 1 hour for 'viewed' updates
+      updateUrgency();
+    }, ONE_HOUR_MS);
 
     const interestedIntervalId = setInterval(() => {
-      const currentData = getUrgencyData();
-      // Trigger update if it's an 'interested' type
-      if (currentData && currentData.type === 'interested') {
-        updateUrgency();
-      }
-    }, THREE_DAYS_MS); // Check every 3 days for 'interested' updates
+      updateUrgency();
+    }, THREE_DAYS_MS);
 
     return () => {
       clearInterval(viewedIntervalId);
       clearInterval(interestedIntervalId);
     };
-  }, [productId, updateUrgency, getUrgencyData]);
+  }, [productId, updateUrgency]);
 
   return urgencyText;
 };
