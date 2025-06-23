@@ -23,6 +23,7 @@ const Index: React.FC = () => {
       title: "Letti",
       products: [ // Changed from photos to products
         {
+          id: "letto-aria-120", // Unique ID
           coverPhoto: "https://i.postimg.cc/pTCj8Bwy/20250617-112328.jpg",
           title: "Aria da 120",
           description: "Letto contenitore con tessuto sfoderabile e lavabile. Rete con doppia alzata per rifare il letto facilmente e sfruttare al meglio il vano interno.",
@@ -32,24 +33,28 @@ const Index: React.FC = () => {
           ],
         },
         {
+          id: "letto-mistral-120", // Unique ID
           coverPhoto: "https://i.postimg.cc/G2xFKRyL/20250617-113009.jpg",
           title: "Mistral da 120 abbinato alla cameretta",
           description: "Struttura in laminato facile da pulire, testiera dinamica con colori e lunghezze alterne. Perfetto per chi cerca un letto pratico e anti-acaro, ideale per i più giovani.",
           additionalPhotos: [],
         },
         {
+          id: "letto-poseidone-160", // Unique ID
           coverPhoto: "https://i.postimg.cc/fWHXRB7r/20250617-113502.png",
           title: "Poseidone da 160",
           description: "Linee leggere e moderne, con giroletto basso e piedini alti che slanciano la struttura. Un letto che arreda con discrezione e stile.",
           additionalPhotos: [],
         },
         {
+          id: "letto-honey-160", // Unique ID
           coverPhoto: "https://i.postimg.cc/0jHJXy2s/20250618-101402.jpg",
           title: "Honey da 160",
           description: "Sembra sospeso grazie ai piedini in plexiglass trasparente: un effetto scenico che lo rende unico e leggerissimo alla vista.",
           additionalPhotos: [],
         },
         {
+          id: "letto-dionisio", // Unique ID
           coverPhoto: "https://i.postimg.cc/7YfzG0mY/Chat-GPT-Image-18-giu-2025-11-40-37.png",
           title: "Dionisio cover",
           description: "Contenitore robusto in multistrato con alzata semplice, rivestimento sfoderabile e una testiera con cover double face: tono su tono da un lato, a contrasto dall’altro.",
@@ -61,6 +66,7 @@ const Index: React.FC = () => {
       title: "Pouf e poltrone",
       products: [
         {
+          id: "poltrona-rosini", // Unique ID
           coverPhoto: "https://i.postimg.cc/xT2K7cR0/20250617-113850-1.png", // Second photo as cover
           title: "Rosini",
           description: "Poltrona in tecnofibra antimacchia, resistente e ideale anche per chi ha animali. Comfort e praticità senza rinunciare allo stile.",
@@ -69,24 +75,28 @@ const Index: React.FC = () => {
           ],
         },
         {
+          id: "sedia-pois-domus", // Unique ID
           coverPhoto: "https://i.postimg.cc/m2fwsdbW/20250618-101309.jpg",
           title: "Sedia a pois Domus",
           description: "Design allegro e originale con fantasia a pois. Un tocco di personalità per ogni camera.",
           additionalPhotos: [],
         },
         {
+          id: "pouf-grigio", // Unique ID
           coverPhoto: "https://i.postimg.cc/FHF0r888/20250618-101442.jpg",
           title: "Pouf grigio",
           description: "Minimalista e versatile, perfetto come seduta extra o poggiapiedi discreto e moderno.",
           additionalPhotos: [],
         },
         {
+          id: "pouf-sacco-blu", // Unique ID
           coverPhoto: "https://i.postimg.cc/3NP2JwMZ/20250618-101740.jpg",
           title: "Pouf sacco blu",
           description: "Comodo, giovane e informale. Si adatta perfettamente agli spazi relax e alle camere dei ragazzi.",
           additionalPhotos: [],
         },
         {
+          id: "poltrona-relax-trilly", // Unique ID
           coverPhoto: "https://i.postimg.cc/2jJQx0qB/20250618-101836-1.jpg",
           title: "Poltrona relax Trilly",
           description: "Tre meccanismi indipendenti per massimo comfort: alza piedi, schienale reclinabile e alzata assistita. Dotata di ruote per spostarla anche da seduti.",
@@ -95,6 +105,7 @@ const Index: React.FC = () => {
           ],
         },
         {
+          id: "poltrona-sacco-rossa", // Unique ID
           coverPhoto: "https://i.postimg.cc/N05TTTgx/20250618-102115.png",
           title: "Poltrona sacco rossa",
           description: "Vivace e informale, ideale per ambienti giovani o angoli lettura rilassati. Un tocco di colore e comodità.",
@@ -106,24 +117,28 @@ const Index: React.FC = () => {
       title: "Comodini e comò",
       products: [
         {
+          id: "como-vitality", // Unique ID
           coverPhoto: "https://i.postimg.cc/4yTJfCL9/20250617-113607.jpg",
           title: "Comò Vitality",
           description: "Linee moderne e pulite con presa a gola tra i cassetti. Eleganza contemporanea e funzionalità quotidiana.",
           additionalPhotos: [],
         },
         {
+          id: "comodino-pois-domus", // Unique ID
           coverPhoto: "https://i.postimg.cc/02P8hsJg/20250618-101258.jpg",
           title: "Comodino a pois Domus",
           description: "Giocoso ma raffinato, con il suo motivo a pois si abbina perfettamente a camere vivaci e creative.",
           additionalPhotos: [],
         },
         {
+          id: "como-bombato-domus", // Unique ID
           coverPhoto: "https://i.postimg.cc/nr8LX9zM/20250618-101320.jpg",
           title: "Comò bombato Domus",
           description: "L’ultimo tocco retrò per la tua camera: forme morbide e sinuose per un’eleganza senza tempo.",
           additionalPhotos: [],
         },
         {
+          id: "comodini-vitality", // Unique ID
           coverPhoto: "https://i.postimg.cc/CMjhv15H/20250618-101707.jpg",
           title: "Comodini Vitality",
           description: "In coordinato col comò, completano con coerenza e stile il gruppo letto. Design moderno e finiture curate",
