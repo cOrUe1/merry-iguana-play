@@ -8,7 +8,7 @@ interface UrgencyData {
 
 const STORAGE_KEY_PREFIX = 'product_urgency_';
 const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
-const FIVE_HOURS_MS = 5 * 60 * 60 * 1000; // Changed from ONE_HOUR_MS to FIVE_HOURS_MS
+const ONE_HOUR_MS = 1 * 60 * 60 * 1000; // Reverted to 1 hour
 
 // Function to generate 'X' (interested people) with specified probabilities
 const generateInterestedValue = (): number => {
@@ -73,7 +73,7 @@ export const useProductUrgency = (productId: string) => {
     if (currentData) {
       if (currentData.type === 'interested' && (now - currentData.lastUpdated > THREE_DAYS_MS)) {
         updateIsDue = true;
-      } else if (currentData.type === 'viewed' && (now - currentData.lastUpdated > FIVE_HOURS_MS)) {
+      } else if (currentData.type === 'viewed' && (now - currentData.lastUpdated > ONE_HOUR_MS)) { // Use ONE_HOUR_MS
         updateIsDue = true;
       }
     } else {
@@ -114,7 +114,7 @@ export const useProductUrgency = (productId: string) => {
           setUrgencyData(currentData);
         }
       } else { // type === 'viewed'
-        if (now - currentData.lastUpdated > FIVE_HOURS_MS) { // Use new constant
+        if (now - currentData.lastUpdated > ONE_HOUR_MS) { // Use ONE_HOUR_MS
           currentData.value = generateViewedValue();
           currentData.lastUpdated = now;
           setUrgencyData(currentData);
@@ -126,7 +126,7 @@ export const useProductUrgency = (productId: string) => {
     if (currentData.type === 'interested') {
       setUrgencyText(`Persone interessate a questo elemento: ${currentData.value}`);
     } else {
-      setUrgencyText(`Visualizzato da ${currentData.value} persone in questo momento`);
+      setUrgencyText(`Visualizzato da ${currentData.value} persone nell'ultima ora`); // Changed text here
     }
   }, [productId, getUrgencyData, setUrgencyData]);
 
@@ -139,7 +139,7 @@ export const useProductUrgency = (productId: string) => {
       if (!currentData || currentData.type === 'viewed') {
         updateUrgency();
       }
-    }, FIVE_HOURS_MS); // Check every 5 hours for 'viewed' updates
+    }, ONE_HOUR_MS); // Check every 1 hour for 'viewed' updates
 
     const interestedIntervalId = setInterval(() => {
       const currentData = getUrgencyData();
