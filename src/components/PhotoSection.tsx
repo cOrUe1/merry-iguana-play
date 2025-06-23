@@ -1,27 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import ProductModal from './ProductModal';
 import { Product } from '@/types/product'; // Import the Product interface
 
 interface PhotoSectionProps {
   title: string;
-  products: Product[]; // Changed from photos: string[] to products: Product[]
+  products: Product[];
+  onProductClick: (product: Product) => void; // New prop for handling clicks
 }
 
-const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products }) => {
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleCardClick = (product: Product) => {
-    setSelectedProduct(product);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedProduct(null);
-  };
-
+const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products, onProductClick }) => {
   return (
     <section className="py-16 px-4 bg-background text-foreground">
       <h2 className="text-4xl font-bold text-center mb-12 text-primary">{title}</h2>
@@ -30,7 +17,7 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products }) => {
           <Card
             key={index}
             className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-            onClick={() => handleCardClick(product)}
+            onClick={() => onProductClick(product)} // Call onProductClick with the product
           >
             <CardContent className="p-0">
               <img
@@ -42,11 +29,6 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products }) => {
           </Card>
         ))}
       </div>
-      <ProductModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        product={selectedProduct}
-      />
     </section>
   );
 };
