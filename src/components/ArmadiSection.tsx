@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import ProductModal from './ProductModal';
-import { Product } from '@/types/product'; // Import Product interface
+
+interface Product {
+  coverPhoto: string;
+  title: string;
+  description: string;
+  additionalPhotos: string[];
+}
 
 const armadiProducts: Product[] = [
   {
-    id: "armadio-golf-plus", // Unique ID
     coverPhoto: "https://i.postimg.cc/44DnmVcG/20250617-112932.jpg",
     title: "Armadio Golf plus",
     description: "Design moderno ed essenziale con ante effetto cemento e profili senza maniglie. Include una zona toeletta/studio con LED integrati e una cabina armadio terminale molto capiente. Il pratico sistema sali-scendi rende comodo l’accesso ai vestiti.",
@@ -20,7 +25,6 @@ const armadiProducts: Product[] = [
     ],
   },
   {
-    id: "armadio-artigianmobili", // Unique ID
     coverPhoto: "https://i.postimg.cc/Gp82ZZ1R/20250617-111945.jpg",
     title: "Armadio Artigianmobili",
     description: "Due ante scorrevoli con pannello centrale porta TV apribile che nasconde un vano utile. Cassetti con apertura push-pull, struttura solida con spessori rinforzati da 3,5 cm. Eleganza e funzionalità in un unico armadio.",
@@ -33,7 +37,6 @@ const armadiProducts: Product[] = [
     ],
   },
   {
-    id: "armadio-vitality", // Unique ID
     coverPhoto: "https://i.postimg.cc/wxXsPvyq/20250619-092826.jpg",
     title: "Armadio Vitality",
     description: "Un mix di stile e tecnologia: ante battenti, cabina armadio con metallo satinato e vetro, modulo finale completamente in vetro riflettente. Illuminazione LED interna per un tocco scenografico e pratico.",
@@ -46,7 +49,6 @@ const armadiProducts: Product[] = [
     ],
   },
   {
-    id: "cameretta-mistral", // Unique ID
     coverPhoto: "https://i.postimg.cc/wBCQW3Pd/20250617-113109.jpg",
     title: "Cameretta Mistral",
     description: "Soluzione intelligente per ragazzi: scrivania integrata, libreria scorrevole che rivela un ampio vano armadio, nicchia appendiabiti a portata di mano e una seconda libreria laterale. Tutto ottimizzato in poco spazio.",
@@ -82,7 +84,7 @@ const ArmadiSection: React.FC = () => {
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {armadiProducts.map((product, index) => (
           <Card
-            key={product.id} // Use product.id as key
+            key={index}
             className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
             onClick={() => handleCardClick(product)}
           >
