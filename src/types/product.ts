@@ -4,5 +4,4 @@ export interface Product {
   title: string;
   description: string;
   additionalPhotos: string[];
-  status?: 'booked'; // Added optional status property
 }

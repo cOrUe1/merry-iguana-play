@@ -46,7 +46,6 @@ const Index: React.FC = () => {
           title: "Poseidone da 160",
           description: "Linee leggere e moderne, con giroletto basso e piedini alti che slanciano la struttura. Un letto che arreda con discrezione e stile.",
           additionalPhotos: [],
-          status: "booked", // Marked as booked (3rd photo)
         },
         {
           id: uuidv4(), // Unique ID
@@ -61,7 +60,6 @@ const Index: React.FC = () => {
           title: "Dionisio cover",
           description: "Contenitore robusto in multistrato con alzata semplice, rivestimento sfoderabile e una testiera con cover double face: tono su tono da un lato, a contrasto dall’altro.",
           additionalPhotos: [],
-          // No 6th product here, will inform user.
         },
       ],
     },
