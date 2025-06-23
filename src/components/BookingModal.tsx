@@ -48,7 +48,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, productTit
     setIsSubmitting(true);
     try {
       // IMPORTANT: Replace with your deployed Google App Script URL
-      const SCRIPT_URL = "YOUR_GOOGLE_APP_SCRIPT_WEB_APP_URL_HERE"; 
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyEXpYez5DmGLGaSFwvbIx07lCdEIBLfIMyd6b6J8GTsY9BqWAGpQDyCJbyJtI4Md90vQ/exec"; 
 
       const formData = new FormData();
       formData.append("Nome", values.name);
