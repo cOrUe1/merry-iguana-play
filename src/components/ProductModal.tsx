@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button'; // Import Button
+import { Button } from '@/components/ui/button';
 import ProductImageCarousel from './ProductImageCarousel';
-import BookingModal from './BookingModal'; // Import BookingModal
+import BookingModal from './BookingModal';
 import { Product } from '@/types/product';
 import { useProductUrgency } from '@/hooks/useProductUrgency';
 
@@ -19,6 +19,10 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose, product })
   if (!product) return null;
 
   const allPhotos = [product.coverPhoto, ...product.additionalPhotos];
+
+  // Define products that are sold
+  const soldProductTitles = ["Poseidone da 160", "Dionisio cover"];
+  const isSold = soldProductTitles.includes(product.title);
 
   const handleOpenBookingModal = () => {
     setIsBookingModalOpen(true);
@@ -41,13 +45,19 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose, product })
           <div className="py-4">
             <ProductImageCarousel photos={allPhotos} />
           </div>
-          {urgencyText && (
-            <p className="text-red-600 text-sm font-semibold mt-4">
-              {urgencyText}
-            </p>
+          {isSold ? (
+            <p className="text-red-600 text-sm font-semibold mt-4">Venduto</p>
+          ) : (
+            urgencyText && (
+              <p className="text-red-600 text-sm font-semibold mt-4">
+                {urgencyText}
+              </p>
+            )
           )}
           <DialogFooter className="flex justify-end mt-4">
-            <Button onClick={handleOpenBookingModal}>Prenota ora!</Button>
+            {!isSold && (
+              <Button onClick={handleOpenBookingModal}>Prenota ora!</Button>
+            )}
           </DialogFooter>
         </DialogContent>
       </Dialog>
