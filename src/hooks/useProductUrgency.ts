@@ -8,7 +8,7 @@ interface UrgencyData {
 
 const STORAGE_KEY_PREFIX = 'product_urgency_';
 const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
-const ONE_HOUR_MS = 60 * 60 * 1000;
+const FIVE_HOURS_MS = 5 * 60 * 60 * 1000; // Changed from ONE_HOUR_MS to FIVE_HOURS_MS
 
 // Function to generate 'X' (interested people) with specified probabilities
 const generateInterestedValue = (): number => {
@@ -68,6 +68,28 @@ export const useProductUrgency = (productId: string) => {
     const now = Date.now();
     let currentData = getUrgencyData();
 
+    // Determine if an update is due for either type or if it's the first load
+    let updateIsDue = false;
+    if (currentData) {
+      if (currentData.type === 'interested' && (now - currentData.lastUpdated > THREE_DAYS_MS)) {
+        updateIsDue = true;
+      } else if (currentData.type === 'viewed' && (now - currentData.lastUpdated > FIVE_HOURS_MS)) {
+        updateIsDue = true;
+      }
+    } else {
+      // If no data, it's effectively a "first update"
+      updateIsDue = true;
+    }
+
+    // Apply the 1 in 6 chance to remove the text, but only if an update is due or it's the first time
+    if (updateIsDue && Math.random() < 1 / 6) {
+      localStorage.removeItem(`${STORAGE_KEY_PREFIX}${productId}`);
+      setUrgencyText(null);
+      return; // Stop here, no text will be shown
+    }
+
+    // If we reach here, either no update was due, or the 1/6 chance failed, so proceed with normal logic
+
     if (!currentData) {
       // First time for this product, determine type randomly
       const typeRoll = Math.random();
@@ -82,7 +104,6 @@ export const useProductUrgency = (productId: string) => {
       // Update existing data based on type and time
       if (currentData.type === 'interested') {
         if (now - currentData.lastUpdated > THREE_DAYS_MS) {
-          // Update every 3 days, 50% chance to increment
           if (Math.random() < 0.5) { // 50% chance to update
             currentData.value = Math.min(4, currentData.value + 1); // Increment by 1, cap at 4
           } else {
@@ -93,8 +114,7 @@ export const useProductUrgency = (productId: string) => {
           setUrgencyData(currentData);
         }
       } else { // type === 'viewed'
-        if (now - currentData.lastUpdated > ONE_HOUR_MS) {
-          // Update every hour
+        if (now - currentData.lastUpdated > FIVE_HOURS_MS) { // Use new constant
           currentData.value = generateViewedValue();
           currentData.lastUpdated = now;
           setUrgencyData(currentData);
@@ -113,28 +133,25 @@ export const useProductUrgency = (productId: string) => {
   useEffect(() => {
     updateUrgency(); // Initial update when component mounts or productId changes
 
-    const intervalId = setInterval(() => {
+    const viewedIntervalId = setInterval(() => {
       const currentData = getUrgencyData();
-      if (currentData && currentData.type === 'viewed') {
-        // Only update 'viewed' type on interval
-        updateUrgency();
-      } else if (!currentData) {
-        // If no data, initialize it
+      // Trigger update if it's a 'viewed' type or if there's no data yet (for initial roll)
+      if (!currentData || currentData.type === 'viewed') {
         updateUrgency();
       }
-    }, ONE_HOUR_MS); // Check every hour for 'viewed' updates
+    }, FIVE_HOURS_MS); // Check every 5 hours for 'viewed' updates
 
-    const threeDayIntervalId = setInterval(() => {
+    const interestedIntervalId = setInterval(() => {
       const currentData = getUrgencyData();
+      // Trigger update if it's an 'interested' type
       if (currentData && currentData.type === 'interested') {
-        // Only update 'interested' type on interval
         updateUrgency();
       }
     }, THREE_DAYS_MS); // Check every 3 days for 'interested' updates
 
     return () => {
-      clearInterval(intervalId);
-      clearInterval(threeDayIntervalId);
+      clearInterval(viewedIntervalId);
+      clearInterval(interestedIntervalId);
     };
   }, [productId, updateUrgency, getUrgencyData]);
 
