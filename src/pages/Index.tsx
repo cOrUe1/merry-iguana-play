@@ -62,42 +62,42 @@ const Index: React.FC = () => {
       products: [
         {
           coverPhoto: "https://i.postimg.cc/xT2K7cR0/20250617-113850-1.png", // Second photo as cover
-          title: "Poltrona Relax",
-          description: "Una poltrona avvolgente per i tuoi momenti di relax.",
+          title: "Rosini",
+          description: "Poltrona in tecnofibra antimacchia, resistente e ideale anche per chi ha animali. Comfort e praticità senza rinunciare allo stile.",
           additionalPhotos: [
             "https://i.postimg.cc/vHtWdbq5/20250617-113839-1.png", // First photo as additional
           ],
         },
         {
           coverPhoto: "https://i.postimg.cc/m2fwsdbW/20250618-101309.jpg",
-          title: "Pouf Design",
-          description: "Un pouf dal design moderno che arreda con stile.",
+          title: "Sedia a pois Domus",
+          description: "Design allegro e originale con fantasia a pois. Un tocco di personalità per ogni camera.",
           additionalPhotos: [],
         },
         {
           coverPhoto: "https://i.postimg.cc/FHF0r888/20250618-101442.jpg",
-          title: "Poltrona Elegante",
-          description: "Eleganza e comfort si fondono in questa poltrona raffinata.",
+          title: "Pouf grigio",
+          description: "Minimalista e versatile, perfetto come seduta extra o poggiapiedi discreto e moderno.",
           additionalPhotos: [],
         },
         {
           coverPhoto: "https://i.postimg.cc/3NP2JwMZ/20250618-101740.jpg",
-          title: "Pouf Multiuso",
-          description: "Un pouf pratico e funzionale, perfetto per ogni esigenza.",
+          title: "Pouf sacco blu",
+          description: "Comodo, giovane e informale. Si adatta perfettamente agli spazi relax e alle camere dei ragazzi.",
           additionalPhotos: [],
         },
         {
           coverPhoto: "https://i.postimg.cc/2jJQx0qB/20250618-101836-1.jpg",
-          title: "Poltrona Accogliente",
-          description: "Una poltrona che invita al relax con il suo design accogliente.",
+          title: "Poltrona relax Trilly",
+          description: "Tre meccanismi indipendenti per massimo comfort: alza piedi, schienale reclinabile e alzata assistita. Dotata di ruote per spostarla anche da seduti.",
           additionalPhotos: [
             "https://i.postimg.cc/VLT2czXs/20250619-105022-1-1.png", // New additional photo
           ],
         },
         {
           coverPhoto: "https://i.postimg.cc/N05TTTgx/20250618-102115.png",
-          title: "Pouf Moderno",
-          description: "Un pouf dal look contemporaneo, ideale per ambienti dinamici.",
+          title: "Poltrona sacco rossa",
+          description: "Vivace e informale, ideale per ambienti giovani o angoli lettura rilassati. Un tocco di colore e comodità.",
           additionalPhotos: [],
         },
       ],
