@@ -32,10 +32,16 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose, product })
         <div className="py-4">
           <ProductImageCarousel photos={allPhotos} />
         </div>
-        {urgencyText && (
+        {product.status === 'booked' ? (
           <p className="text-red-600 text-sm font-semibold mt-4">
-            {urgencyText}
+            Già prenotato
           </p>
+        ) : (
+          urgencyText && (
+            <p className="text-red-600 text-sm font-semibold mt-4">
+              {urgencyText}
+            </p>
+          )
         )}
       </DialogContent>
     </Dialog>
