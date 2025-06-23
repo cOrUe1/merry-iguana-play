@@ -4,14 +4,12 @@ import Autoplay from 'embla-carousel-autoplay';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Product } from '@/types/product'; // Import Product interface
 
 interface ImageCarouselProps {
-  products: Product[]; // Changed from photos: string[] to products: Product[]
-  onProductClick: (product: Product) => void; // New prop for handling clicks
+  photos: string[];
 }
 
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ products, onProductClick }) => {
+const ImageCarousel: React.FC<ImageCarouselProps> = ({ photos }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 3000, stopOnInteraction: false })]);
 
   const scrollPrev = useCallback(() => {
@@ -28,23 +26,15 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ products, onProductClick 
     }
   }, [emblaApi]);
 
-  if (!products || products.length === 0) {
-    return <div className="text-center text-muted-foreground py-8">Nessuna immagine disponibile nel carosello.</div>;
-  }
-
   return (
     <section className="py-12 overflow-hidden bg-secondary relative">
       <div className="embla" ref={emblaRef}>
         <div className="embla__container flex">
-          {products.map((product, index) => (
-            <div
-              key={index}
-              className="embla__slide flex-shrink-0 w-80 h-56 mx-4 rounded-lg overflow-hidden shadow-lg cursor-pointer"
-              onClick={() => onProductClick(product)} // Call onProductClick with the product
-            >
+          {photos.map((photo, index) => (
+            <div key={index} className="embla__slide flex-shrink-0 w-80 h-56 mx-4 rounded-lg overflow-hidden shadow-lg">
               <img
-                src={product.coverPhoto}
-                alt={`${product.title} photo ${index + 1}`}
+                src={photo}
+                alt={`Generic photo ${index + 1}`}
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
               />
             </div>

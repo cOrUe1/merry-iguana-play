@@ -1,7 +1,13 @@
 import React from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import ProductImageCarousel from './ProductImageCarousel';
-import { Product } from '@/types/product'; // Import Product interface from types
+
+interface Product {
+  coverPhoto: string;
+  title: string;
+  description: string;
+  additionalPhotos: string[];
+}
 
 interface ProductModalProps {
   isOpen: boolean;

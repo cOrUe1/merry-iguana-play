@@ -3,5 +3,4 @@ export interface Product {
   title: string;
   description: string;
   additionalPhotos: string[];
-  category: string; // Added category for filtering
 }
