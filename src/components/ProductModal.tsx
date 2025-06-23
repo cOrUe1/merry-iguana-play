@@ -1,7 +1,6 @@
 import React from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import ProductImageCarousel from './ProductImageCarousel';
-// import { useProductStats } from '@/hooks/useProductStats'; // Rimosso temporaneamente
 
 interface Product {
   coverPhoto: string;
@@ -19,7 +18,7 @@ interface ProductModalProps {
 const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose, product }) => {
   if (!product) return null;
 
-  // Combina la foto di copertina con le foto aggiuntive per il carosello
+  // Combine cover photo with additional photos for the carousel
   const allPhotos = [product.coverPhoto, ...product.additionalPhotos];
 
   return (
