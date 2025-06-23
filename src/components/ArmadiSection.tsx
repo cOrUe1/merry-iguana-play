@@ -12,8 +12,8 @@ interface Product {
 const armadiProducts: Product[] = [
   {
     coverPhoto: "https://i.postimg.cc/44DnmVcG/20250617-112932.jpg",
-    title: "Armadio Spazioso", // Titolo placeholder
-    description: "Un armadio moderno e funzionale, ideale per ottimizzare lo spazio nella tua camera da letto. Dotato di ampi scomparti e finiture di alta qualità.", // Descrizione placeholder
+    title: "Armadio Golf plus",
+    description: "Design moderno ed essenziale con ante effetto cemento e profili senza maniglie. Include una zona toeletta/studio con LED integrati e una cabina armadio terminale molto capiente. Il pratico sistema sali-scendi rende comodo l’accesso ai vestiti.",
     additionalPhotos: [
       "https://i.postimg.cc/8Czzqb2R/20250617-112917-1.png",
       "https://i.postimg.cc/qgHf4kzf/20250617-112503.jpg",
@@ -26,8 +26,8 @@ const armadiProducts: Product[] = [
   },
   {
     coverPhoto: "https://i.postimg.cc/Gp82ZZ1R/20250617-111945.jpg",
-    title: "Armadio Elegante",
-    description: "Design raffinato e linee pulite per un armadio che si adatta a ogni stile. Perfetto per chi cerca eleganza e praticità.",
+    title: "Armadio Artigianmobili",
+    description: "Due ante scorrevoli con pannello centrale porta TV apribile che nasconde un vano utile. Cassetti con apertura push-pull, struttura solida con spessori rinforzati da 3,5 cm. Eleganza e funzionalità in un unico armadio.",
     additionalPhotos: [
       "https://i.postimg.cc/SQZrrMVM/20250617-111933.jpg",
       "https://i.postimg.cc/WzMqxxgz/20250617-111958-1.png",
@@ -38,8 +38,8 @@ const armadiProducts: Product[] = [
   },
   {
     coverPhoto: "https://i.postimg.cc/wxXsPvyq/20250619-092826.jpg",
-    title: "Scrivania Funzionale",
-    description: "Scrivania compatta e robusta, ideale per lo studio o l'ufficio domestico. Offre ampio spazio di lavoro e un design ergonomico.",
+    title: "Armadio Vitality",
+    description: "Un mix di stile e tecnologia: ante battenti, cabina armadio con metallo satinato e vetro, modulo finale completamente in vetro riflettente. Illuminazione LED interna per un tocco scenografico e pratico.",
     additionalPhotos: [
       "https://i.postimg.cc/WbtTZYPB/20250619-092534.jpg",
       "https://i.postimg.cc/nhJxWFmJ/20250619-092551.jpg",
@@ -50,8 +50,8 @@ const armadiProducts: Product[] = [
   },
   {
     coverPhoto: "https://i.postimg.cc/wBCQW3Pd/20250617-113109.jpg",
-    title: "Armadio con Ante Scorrevoli",
-    description: "Soluzione salvaspazio con ante scorrevoli, perfetta per ambienti moderni. Massima capienza e facilità d'uso.",
+    title: "Cameretta Mistral",
+    description: "Soluzione intelligente per ragazzi: scrivania integrata, libreria scorrevole che rivela un ampio vano armadio, nicchia appendiabiti a portata di mano e una seconda libreria laterale. Tutto ottimizzato in poco spazio.",
     additionalPhotos: [
       "https://i.postimg.cc/YS0V90LY/20250617-113018.jpg",
       "https://i.postimg.cc/tC0HM3Zf/20250617-113127.jpg",
