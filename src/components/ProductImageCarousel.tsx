@@ -2,8 +2,8 @@
 
 import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button'; // Mantenuto per sicurezza, ma non più usato per le frecce qui
+import { ChevronLeft, ChevronRight } from 'lucide-react'; // Mantenuto per sicurezza, ma non più usato per le frecce qui
 import { cn } from '@/lib/utils';
 
 interface ProductImageCarouselProps {
@@ -15,14 +15,6 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
   const scrollTo = useCallback((index: number) => {
     if (emblaApi) emblaApi.scrollTo(index);
   }, [emblaApi]);
@@ -31,7 +23,6 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
     if (!emblaApi) return;
 
     const updateCarouselState = () => {
-      // Aggiungi controlli più robusti per assicurarti che i metodi siano disponibili
       if (typeof emblaApi.selectedScrollSnap === 'function' && typeof emblaApi.scrollSnaps === 'function') {
         setSelectedIndex(emblaApi.selectedScrollSnap());
         setScrollSnaps(emblaApi.scrollSnaps());
@@ -69,43 +60,19 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
         </div>
       </div>
       {photos.length > 1 && (
-        <>
-          <Button
-            className={cn(
-              "absolute left-2 top-1/2 -translate-y-1/2 z-10 rounded-full p-2 bg-primary text-primary-foreground hover:bg-primary/90"
-              // Le classi "hidden md:flex" sono state rimosse per rendere le frecce sempre visibili
-            )}
-            onClick={scrollPrev}
-            variant="ghost"
-            size="icon"
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </Button>
-          <Button
-            className={cn(
-              "absolute right-2 top-1/2 -translate-y-1/2 z-10 rounded-full p-2 bg-primary text-primary-foreground hover:bg-primary/90"
-              // Le classi "hidden md:flex" sono state rimosse per rendere le frecce sempre visibili
-            )}
-            onClick={scrollNext}
-            variant="ghost"
-            size="icon"
-          >
-            <ChevronRight className="h-6 w-6" />
-          </Button>
-          <div className="embla__dots absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-20">
-            {scrollSnaps.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => scrollTo(index)}
-                className={cn(
-                  "w-2.5 h-2.5 rounded-full transition-colors duration-200",
-                  index === selectedIndex ? "bg-primary" : "bg-gray-300 hover:bg-gray-400"
-                )}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </>
+        <div className="embla__dots absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-20">
+          {scrollSnaps.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollTo(index)}
+              className={cn(
+                "w-2.5 h-2.5 rounded-full transition-colors duration-200",
+                index === selectedIndex ? "bg-primary" : "bg-gray-300 hover:bg-gray-400"
+              )}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       )}
     </div>
   );
