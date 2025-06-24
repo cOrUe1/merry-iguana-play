@@ -6,6 +6,7 @@ import ProductModal from './ProductModal';
 import { Product } from '@/types/product';
 import { cn } from '@/lib/utils';
 import { useProductCardAnimation } from '@/hooks/useProductCardAnimation';
+import { AspectRatio } from '@/components/ui/aspect-ratio'; // Import AspectRatio
 
 interface PhotoSectionProps {
   title: string;
@@ -42,14 +43,16 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products }) => {
               onClick={() => handleCardClick(product)}
             >
               <CardContent className="p-0">
-                <img
-                  src={product.coverPhoto}
-                  alt={`${product.title} photo ${index + 1}`}
-                  className={cn(
-                    "w-full h-64 object-cover transition-transform duration-300",
-                    activeProductId === product.id && "scale-105"
-                  )}
-                />
+                <AspectRatio ratio={4 / 3} className="w-full"> {/* Added AspectRatio */}
+                  <img
+                    src={product.coverPhoto}
+                    alt={`${product.title} photo ${index + 1}`}
+                    className={cn(
+                      "w-full h-full object-cover transition-transform duration-300", // Changed h-64 to h-full
+                      activeProductId === product.id && "scale-105"
+                    )}
+                  />
+                </AspectRatio>
                 <div className="p-4 text-center">
                   {isSold ? (
                     <p className="text-red-600 text-xl font-bold">Esaurito</p>

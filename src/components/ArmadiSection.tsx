@@ -5,6 +5,7 @@ import { Product } from '@/types/product'; // Import the Product interface
 import { v4 as uuidv4 } from 'uuid'; // Import uuid for unique IDs
 import { cn } from '@/lib/utils'; // Import cn for conditional class names
 import { useProductCardAnimation } from '@/hooks/useProductCardAnimation'; // Import the new hook
+import { AspectRatio } from '@/components/ui/aspect-ratio'; // Import AspectRatio
 
 const armadiProducts: Product[] = [
   {
@@ -104,14 +105,16 @@ const ArmadiSection: React.FC = () => {
             onClick={() => handleCardClick(product)}
           >
             <CardContent className="p-0">
-              <img
-                src={product.coverPhoto}
-                alt={`${product.title} cover photo`}
-                className={cn(
-                  "w-full h-48 object-cover transition-transform duration-300",
-                  activeProductId === product.id && "scale-105" // Apply scale-105 if active
-                )}
-              />
+              <AspectRatio ratio={4 / 3} className="w-full"> {/* Added AspectRatio */}
+                <img
+                  src={product.coverPhoto}
+                  alt={`${product.title} cover photo`}
+                  className={cn(
+                    "w-full h-full object-cover transition-transform duration-300", // Changed h-48 to h-full
+                    activeProductId === product.id && "scale-105"
+                  )}
+                />
+              </AspectRatio>
               {product.oldPrice && product.newPrice && product.discountPercentage !== undefined && (
                 <div className="p-4 text-center">
                   <p className="text-lg text-muted-foreground line-through">€ {product.oldPrice.toFixed(2).replace('.', ',')}</p>
