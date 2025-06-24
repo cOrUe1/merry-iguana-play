@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Button } from '@/components/ui/button';
@@ -27,26 +25,22 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
     if (emblaApi) emblaApi.scrollTo(index);
   }, [emblaApi]);
 
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi, setSelectedIndex]);
+
   useEffect(() => {
     if (!emblaApi) return;
-
-    const updateCarouselState = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-      setScrollSnaps(emblaApi.scrollSnaps());
-    };
-
-    // Ascolta gli eventi 'init', 'select' e 'reInit' per mantenere lo stato aggiornato
-    emblaApi.on('init', updateCarouselState);
-    emblaApi.on('select', updateCarouselState);
-    emblaApi.on('reInit', updateCarouselState);
-
-    // Funzione di pulizia per rimuovere i listener
+    onSelect();
+    setScrollSnaps(emblaApi.scrollSnaps());
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
     return () => {
-      emblaApi.off('init', updateCarouselState);
-      emblaApi.off('select', updateCarouselState);
-      emblaApi.off('reInit', updateCarouselState);
+      emblaApi.off('select', onSelect);
+      emblaApi.off('reInit', onSelect);
     };
-  }, [emblaApi]); // La dipendenza da emblaApi assicura che questo effetto venga eseguito quando l'istanza API è pronta
+  }, [emblaApi, setScrollSnaps, onSelect]);
 
   if (!photos || photos.length === 0) {
     return <div className="text-center text-muted-foreground py-8">Nessuna immagine disponibile.</div>;
