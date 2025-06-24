@@ -27,37 +27,28 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
     if (emblaApi) emblaApi.scrollTo(index);
   }, [emblaApi]);
 
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi, setSelectedIndex]);
-
-  const updateScrollSnaps = useCallback(() => {
-    if (!emblaApi) return;
-    setScrollSnaps(emblaApi.scrollSnaps());
-  }, [emblaApi, setScrollSnaps]);
-
   useEffect(() => {
     if (!emblaApi) return;
 
-    // Define a function to initialize the carousel state
-    const initializeCarouselState = () => {
-      onSelect();
-      updateScrollSnaps();
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
     };
 
-    // Call initializeCarouselState on 'init' and 'reInit'
-    emblaApi.on('init', initializeCarouselState);
-    emblaApi.on('reInit', initializeCarouselState);
-    emblaApi.on('select', onSelect); // Keep select listener for index updates
+    const onInit = () => {
+      setScrollSnaps(emblaApi.scrollSnaps());
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
 
-    // Cleanup listeners
+    emblaApi.on('select', onSelect);
+    emblaApi.on('init', onInit);
+    emblaApi.on('reInit', onInit);
+
     return () => {
-      emblaApi.off('init', initializeCarouselState);
-      emblaApi.off('reInit', initializeCarouselState);
       emblaApi.off('select', onSelect);
+      emblaApi.off('init', onInit);
+      emblaApi.off('reInit', onInit);
     };
-  }, [emblaApi, onSelect, updateScrollSnaps]); // Dependencies for useEffect
+  }, [emblaApi]); // Only emblaApi as dependency
 
   if (!photos || photos.length === 0) {
     return <div className="text-center text-muted-foreground py-8">Nessuna immagine disponibile.</div>;
