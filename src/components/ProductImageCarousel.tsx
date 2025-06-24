@@ -30,32 +30,24 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
   useEffect(() => {
     if (!emblaApi) return;
 
-    const onSelect = () => {
+    const updateCarouselState = () => {
       setSelectedIndex(emblaApi.selectedScrollSnap());
+      setScrollSnaps(emblaApi.scrollSnaps());
     };
 
-    const onInit = () => {
-      // Defer execution to ensure emblaApi is fully ready
-      setTimeout(() => {
-        if (emblaApi && typeof emblaApi.scrollSnaps === 'function') {
-          setScrollSnaps(emblaApi.scrollSnaps());
-          setSelectedIndex(emblaApi.selectedScrollSnap());
-        } else {
-          console.warn("Embla API not fully ready after init event, scrollSnaps method not found.");
-        }
-      }, 0);
-    };
+    // Aggiorna lo stato iniziale quando emblaApi è disponibile
+    updateCarouselState();
 
-    emblaApi.on('select', onSelect);
-    emblaApi.on('init', onInit);
-    emblaApi.on('reInit', onInit);
+    // Ascolta gli eventi 'select' e 'reInit' per mantenere lo stato aggiornato
+    emblaApi.on('select', updateCarouselState);
+    emblaApi.on('reInit', updateCarouselState);
 
+    // Funzione di pulizia per rimuovere i listener
     return () => {
-      emblaApi.off('select', onSelect);
-      emblaApi.off('init', onInit);
-      emblaApi.off('reInit', onInit);
+      emblaApi.off('select', updateCarouselState);
+      emblaApi.off('reInit', updateCarouselState);
     };
-  }, [emblaApi]);
+  }, [emblaApi]); // La dipendenza da emblaApi assicura che questo effetto venga eseguito quando l'istanza API è pronta
 
   if (!photos || photos.length === 0) {
     return <div className="text-center text-muted-foreground py-8">Nessuna immagine disponibile.</div>;
