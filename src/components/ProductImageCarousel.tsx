@@ -35,15 +35,14 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
       setScrollSnaps(emblaApi.scrollSnaps());
     };
 
-    // Aggiorna lo stato iniziale quando emblaApi è disponibile
-    updateCarouselState();
-
-    // Ascolta gli eventi 'select' e 'reInit' per mantenere lo stato aggiornato
+    // Ascolta gli eventi 'init', 'select' e 'reInit' per mantenere lo stato aggiornato
+    emblaApi.on('init', updateCarouselState);
     emblaApi.on('select', updateCarouselState);
     emblaApi.on('reInit', updateCarouselState);
 
     // Funzione di pulizia per rimuovere i listener
     return () => {
+      emblaApi.off('init', updateCarouselState);
       emblaApi.off('select', updateCarouselState);
       emblaApi.off('reInit', updateCarouselState);
     };
