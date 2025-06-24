@@ -95,6 +95,16 @@ const Index: React.FC = () => {
         },
         {
           id: uuidv4(), // Unique ID
+          coverPhoto: "https://i.postimg.cc/d1bb3PwD/20250624-114026.jpg", // New photo for Pouf Rosini
+          title: "Pouf Rosini",
+          description: "Coordinato con la poltrona, è rivestito in tecnofibra antimacchia resistente e facile da pulire. Perfetto come poggiapiedi o seduta aggiuntiva, unisce comfort, praticità ed eleganza quotidiana.",
+          additionalPhotos: [],
+          oldPrice: 713.70,
+          newPrice: 339.00,
+          discountPercentage: 52,
+        },
+        {
+          id: uuidv4(), // Unique ID
           coverPhoto: "https://i.postimg.cc/m2fwsdbW/20250618-101309.jpg",
           title: "Sedia a pois Domus",
           description: "Design allegro e originale con fantasia a pois. Un tocco di personalità per ogni camera.",

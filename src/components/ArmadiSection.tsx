@@ -18,6 +18,7 @@ const armadiProducts: Product[] = [
       "https://i.postimg.cc/RZR0sYDC/20250617-112543.jpg",
       "https://i.postimg.cc/44DnmVcG/20250617-112932.jpg",
       "https://i.postimg.cc/66L5nW4b/20250619-163026.jpg",
+      "https://i.postimg.cc/hvVH7yts/20250624-113906.jpg", // New photo added here
     ],
     oldPrice: 5100.00,
     newPrice: 2799.00,
