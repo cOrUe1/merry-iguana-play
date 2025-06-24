@@ -28,19 +28,19 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi, setSelectedIndex]);
+    setScrollSnaps(emblaApi.scrollSnaps()); // Spostato qui
+  }, [emblaApi, setSelectedIndex, setScrollSnaps]); // Aggiunto setScrollSnaps alle dipendenze
 
   useEffect(() => {
     if (!emblaApi) return;
-    onSelect();
-    setScrollSnaps(emblaApi.scrollSnaps());
+    onSelect(); // Chiamato una volta all'inizio per impostare lo stato iniziale
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
     return () => {
       emblaApi.off('select', onSelect);
       emblaApi.off('reInit', onSelect);
     };
-  }, [emblaApi, setScrollSnaps, onSelect]);
+  }, [emblaApi, onSelect]); // Rimosso setScrollSnaps dalle dipendenze, ora è in onSelect
 
   if (!photos || photos.length === 0) {
     return <div className="text-center text-muted-foreground py-8">Nessuna immagine disponibile.</div>;
