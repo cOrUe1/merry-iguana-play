@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -10,6 +10,8 @@ interface ProductImageCarouselProps {
 
 const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -18,6 +20,27 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
+
+  const scrollTo = useCallback((index: number) => {
+    if (emblaApi) emblaApi.scrollTo(index);
+  }, [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi, setSelectedIndex]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    setScrollSnaps(emblaApi.scrollSnaps());
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
+    return () => {
+      emblaApi.off('select', onSelect);
+      emblaApi.off('reInit', onSelect);
+    };
+  }, [emblaApi, setScrollSnaps, onSelect]);
 
   if (!photos || photos.length === 0) {
     return <div className="text-center text-muted-foreground py-8">Nessuna immagine disponibile.</div>;
@@ -32,7 +55,7 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
               <img
                 src={photo}
                 alt={`Product photo ${index + 1}`}
-                className="w-full h-96 object-contain" // Use object-contain to ensure full image visibility
+                className="w-full h-96 object-contain"
               />
             </div>
           ))}
@@ -43,7 +66,7 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
           <Button
             className={cn(
               "absolute left-2 top-1/2 -translate-y-1/2 z-10 rounded-full p-2 bg-primary text-primary-foreground hover:bg-primary/90",
-              "hidden md:flex" // Hide on small screens if not needed
+              "hidden md:flex"
             )}
             onClick={scrollPrev}
             variant="ghost"
@@ -54,7 +77,7 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
           <Button
             className={cn(
               "absolute right-2 top-1/2 -translate-y-1/2 z-10 rounded-full p-2 bg-primary text-primary-foreground hover:bg-primary/90",
-              "hidden md:flex" // Hide on small screens if not needed
+              "hidden md:flex"
             )}
             onClick={scrollNext}
             variant="ghost"
@@ -62,6 +85,19 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
           >
             <ChevronRight className="h-6 w-6" />
           </Button>
+          <div className="embla__dots absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-20">
+            {scrollSnaps.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollTo(index)}
+                className={cn(
+                  "w-2.5 h-2.5 rounded-full transition-colors duration-200",
+                  index === selectedIndex ? "bg-primary" : "bg-gray-300 hover:bg-gray-400"
+                )}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </>
       )}
     </div>
