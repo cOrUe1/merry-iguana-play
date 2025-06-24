@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { Button } from '@/components/ui/button';
@@ -11,6 +11,7 @@ interface ImageCarouselProps {
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({ photos }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 3000, stopOnInteraction: false })]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -22,7 +23,15 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ photos }) => {
 
   useEffect(() => {
     if (emblaApi) {
-      // Optional: Add event listeners for custom behavior if needed
+      const onSelect = () => {
+        setSelectedIndex(emblaApi.selectedIndex());
+      };
+      emblaApi.on('select', onSelect);
+      // Initialize selectedIndex
+      setSelectedIndex(emblaApi.selectedIndex());
+      return () => {
+        emblaApi.off('select', onSelect);
+      };
     }
   }, [emblaApi]);
 
@@ -35,7 +44,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ photos }) => {
               <img
                 src={photo}
                 alt={`Generic photo ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                className={cn(
+                  "w-full h-full object-cover transition-transform duration-300",
+                  { "scale-105": index === selectedIndex } // Apply scale if it's the selected index
+                )}
               />
             </div>
           ))}
