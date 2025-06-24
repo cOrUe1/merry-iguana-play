@@ -120,9 +120,9 @@ const Index: React.FC = () => {
         {
           id: uuidv4(), // Unique ID
           coverPhoto: "https://i.postimg.cc/4yTJfCL9/20250617-113607.jpg",
-          title: "Comò Vitality",
-          description: "Linee moderne e pulite con presa a gola tra i cassetti. Eleganza contemporanea e funzionalità quotidiana.",
-          additionalPhotos: [],
+          title: "Comò e Comodini Vitality",
+          description: "Linee moderne e pulite con presa a gola tra i cassetti. Eleganza contemporanea e funzionalità quotidiana. I comodini, in coordinato, completano con coerenza e stile il gruppo letto, con un design moderno e finiture curate.",
+          additionalPhotos: ["https://i.postimg.cc/CMjhv15H/20250618-101707.jpg"], // Added comodini photo here
         },
         {
           id: uuidv4(), // Unique ID
@@ -136,13 +136,6 @@ const Index: React.FC = () => {
           coverPhoto: "https://i.postimg.cc/nr8LX9zM/20250618-101320.jpg",
           title: "Comò bombato Domus",
           description: "L’ultimo tocco retrò per la tua camera: forme morbide e sinuose per un’eleganza senza tempo.",
-          additionalPhotos: [],
-        },
-        {
-          id: uuidv4(), // Unique ID
-          coverPhoto: "https://i.postimg.cc/CMjhv15H/20250618-101707.jpg",
-          title: "Comodini Vitality",
-          description: "In coordinato col comò, completano con coerenza e stile il gruppo letto. Design moderno e finiture curate",
           additionalPhotos: [],
         },
       ],
