@@ -3,6 +3,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import ProductModal from './ProductModal';
 import { Product } from '@/types/product'; // Import the Product interface
 import { v4 as uuidv4 } from 'uuid'; // Import uuid for unique IDs
+import { cn } from '@/lib/utils'; // Import cn for conditional class names
+import { useProductCardAnimation } from '@/hooks/useProductCardAnimation'; // Import the new hook
 
 const armadiProducts: Product[] = [
   {
@@ -79,6 +81,7 @@ const armadiProducts: Product[] = [
 const ArmadiSection: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const activeProductId = useProductCardAnimation(armadiProducts); // Use the new hook
 
   const handleCardClick = (product: Product) => {
     setSelectedProduct(product);
@@ -94,7 +97,7 @@ const ArmadiSection: React.FC = () => {
     <section className="py-16 px-4 bg-background text-foreground">
       <h2 className="text-4xl font-bold text-center mb-12 text-primary">Armadi e scrivanie</h2>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {armadiProducts.map((product) => ( // Removed index as key, using product.id
+        {armadiProducts.map((product) => (
           <Card
             key={product.id}
             className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
@@ -104,7 +107,10 @@ const ArmadiSection: React.FC = () => {
               <img
                 src={product.coverPhoto}
                 alt={`${product.title} cover photo`}
-                className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                className={cn(
+                  "w-full h-48 object-cover transition-transform duration-300",
+                  activeProductId === product.id && "scale-105" // Apply scale-105 if active
+                )}
               />
               {product.oldPrice && product.newPrice && product.discountPercentage !== undefined && (
                 <div className="p-4 text-center">
