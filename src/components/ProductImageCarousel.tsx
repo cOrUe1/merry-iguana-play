@@ -25,22 +25,37 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
     if (emblaApi) emblaApi.scrollTo(index);
   }, [emblaApi]);
 
+  // Callback per aggiornare l'indice selezionato
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
-    setScrollSnaps(emblaApi.scrollSnaps()); // Spostato qui
-  }, [emblaApi, setSelectedIndex, setScrollSnaps]); // Aggiunto setScrollSnaps alle dipendenze
+  }, [emblaApi, setSelectedIndex]);
 
+  // Effetto per inizializzare e aggiornare i scrollSnaps e l'indice selezionato
   useEffect(() => {
     if (!emblaApi) return;
-    onSelect(); // Chiamato una volta all'inizio per impostare lo stato iniziale
+
+    // Funzione per aggiornare i pallini di navigazione
+    const updateScrollSnaps = () => {
+      setScrollSnaps(emblaApi.scrollSnaps());
+    };
+
+    // Imposta l'indice iniziale e i pallini quando il carosello è inizializzato
+    onSelect();
+    updateScrollSnaps();
+
+    // Aggiungi listener per gli eventi di Embla
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
+    emblaApi.on('reInit', updateScrollSnaps); // Aggiorna i pallini anche al re-inizializzazione
+
+    // Cleanup dei listener
     return () => {
       emblaApi.off('select', onSelect);
       emblaApi.off('reInit', onSelect);
+      emblaApi.off('reInit', updateScrollSnaps);
     };
-  }, [emblaApi, onSelect]); // Rimosso setScrollSnaps dalle dipendenze, ora è in onSelect
+  }, [emblaApi, onSelect]); // Dipendenze: emblaApi e onSelect
 
   if (!photos || photos.length === 0) {
     return <div className="text-center text-muted-foreground py-8">Nessuna immagine disponibile.</div>;
