@@ -35,8 +35,15 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
     };
 
     const onInit = () => {
-      setScrollSnaps(emblaApi.scrollSnaps());
-      setSelectedIndex(emblaApi.selectedScrollSnap());
+      // Defer execution to ensure emblaApi is fully ready
+      setTimeout(() => {
+        if (emblaApi && typeof emblaApi.scrollSnaps === 'function') {
+          setScrollSnaps(emblaApi.scrollSnaps());
+          setSelectedIndex(emblaApi.selectedScrollSnap());
+        } else {
+          console.warn("Embla API not fully ready after init event, scrollSnaps method not found.");
+        }
+      }, 0);
     };
 
     emblaApi.on('select', onSelect);
@@ -48,7 +55,7 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
       emblaApi.off('init', onInit);
       emblaApi.off('reInit', onInit);
     };
-  }, [emblaApi]); // Only emblaApi as dependency
+  }, [emblaApi]);
 
   if (!photos || photos.length === 0) {
     return <div className="text-center text-muted-foreground py-8">Nessuna immagine disponibile.</div>;
