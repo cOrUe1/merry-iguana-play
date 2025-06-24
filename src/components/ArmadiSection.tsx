@@ -19,6 +19,9 @@ const armadiProducts: Product[] = [
       "https://i.postimg.cc/44DnmVcG/20250617-112932.jpg",
       "https://i.postimg.cc/66L5nW4b/20250619-163026.jpg",
     ],
+    oldPrice: 5100.00,
+    newPrice: 2799.00,
+    discountPercentage: 45,
   },
   {
     id: uuidv4(), // Unique ID
@@ -32,6 +35,9 @@ const armadiProducts: Product[] = [
       "https://i.postimg.cc/nLRz5pW0/20250617-112142.jpg",
       "https://i.postimg.cc/Gp82ZZ1R/20250617-111945.jpg",
     ],
+    oldPrice: 4406.00,
+    newPrice: 2499.00,
+    discountPercentage: 43,
   },
   {
     id: uuidv4(), // Unique ID
@@ -45,6 +51,9 @@ const armadiProducts: Product[] = [
       "https://i.postimg.cc/R0CBMgGp/20250619-092804-1.png",
       "https://i.postimg.cc/yxP1HjzC/20250619-163750.jpg",
     ],
+    oldPrice: 4758.00,
+    newPrice: 2139.00,
+    discountPercentage: 55,
   },
   {
     id: uuidv4(), // Unique ID
@@ -60,6 +69,9 @@ const armadiProducts: Product[] = [
       "https://i.postimg.cc/KYk8Mttt/20250619-163332.jpg",
       "https://i.postimg.cc/mkRLJqJS/20250619-163341.jpg",
     ],
+    oldPrice: 4826.32,
+    newPrice: 2589.00,
+    discountPercentage: 46,
   },
 ];
 
@@ -93,6 +105,13 @@ const ArmadiSection: React.FC = () => {
                 alt={`${product.title} cover photo`}
                 className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
               />
+              {product.oldPrice && product.newPrice && product.discountPercentage !== undefined && (
+                <div className="p-4 text-center">
+                  <p className="text-lg text-muted-foreground line-through">€ {product.oldPrice.toFixed(2).replace('.', ',')}</p>
+                  <p className="text-2xl font-bold text-primary">€ {product.newPrice.toFixed(2).replace('.', ',')}</p>
+                  <p className="text-sm text-green-600 font-semibold">Sconto del {product.discountPercentage}%</p>
+                </div>
+              )}
             </CardContent>
           </Card>
         ))}

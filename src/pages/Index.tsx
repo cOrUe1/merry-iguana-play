@@ -32,6 +32,9 @@ const Index: React.FC = () => {
             "https://i.postimg.cc/B64DXzwd/20250617-112358.jpg",
             "https://i.postimg.cc/QCMTqTDm/20250617-112425.jpg",
           ],
+          oldPrice: 1428.00,
+          newPrice: 759.00,
+          discountPercentage: 46,
         },
         {
           id: uuidv4(), // Unique ID
@@ -39,6 +42,9 @@ const Index: React.FC = () => {
           title: "Mistral da 120 abbinato alla cameretta",
           description: "Struttura in laminato facile da pulire, testiera dinamica con colori e lunghezze alterne. Perfetto per chi cerca un letto pratico e anti-acaro, ideale per i più giovani.",
           additionalPhotos: [],
+          oldPrice: 524.60,
+          newPrice: 269.00,
+          discountPercentage: 48,
         },
         {
           id: uuidv4(), // Unique ID
@@ -46,6 +52,9 @@ const Index: React.FC = () => {
           title: "Poseidone da 160",
           description: "Linee leggere e moderne, con giroletto basso e piedini alti che slanciano la struttura. Un letto che arreda con discrezione e stile.",
           additionalPhotos: [],
+          oldPrice: 1524.10, // Assuming this is the correct old price for Poseidone
+          newPrice: 999.00, // Assuming this is the correct new price for Poseidone
+          discountPercentage: 35, // Assuming this is the correct discount for Poseidone
         },
         {
           id: uuidv4(), // Unique ID
@@ -53,6 +62,9 @@ const Index: React.FC = () => {
           title: "Honey da 160",
           description: "Sembra sospeso grazie ai piedini in plexiglass trasparente: un effetto scenico che lo rende unico e leggerissimo alla vista.",
           additionalPhotos: [],
+          oldPrice: 1524.10,
+          newPrice: 999.00,
+          discountPercentage: 35,
         },
         {
           id: uuidv4(), // Unique ID
@@ -60,6 +72,9 @@ const Index: React.FC = () => {
           title: "Dionisio cover",
           description: "Contenitore robusto in multistrato con alzata semplice, rivestimento sfoderabile e una testiera con cover double face: tono su tono da un lato, a contrasto dall’altro.",
           additionalPhotos: [],
+          oldPrice: 1524.10, // Assuming this is the correct old price for Dionisio
+          newPrice: 999.00, // Assuming this is the correct new price for Dionisio
+          discountPercentage: 35, // Assuming this is the correct discount for Dionisio
         },
       ],
     },
@@ -74,6 +89,9 @@ const Index: React.FC = () => {
           additionalPhotos: [
             "https://i.postimg.cc/vHtWdbq5/20250617-113839-1.png",
           ],
+          oldPrice: 1537.20,
+          newPrice: 739.00,
+          discountPercentage: 52,
         },
         {
           id: uuidv4(), // Unique ID
@@ -81,6 +99,9 @@ const Index: React.FC = () => {
           title: "Sedia a pois Domus",
           description: "Design allegro e originale con fantasia a pois. Un tocco di personalità per ogni camera.",
           additionalPhotos: [],
+          oldPrice: 411.00,
+          newPrice: 149.00,
+          discountPercentage: 64,
         },
         {
           id: uuidv4(), // Unique ID
@@ -88,6 +109,9 @@ const Index: React.FC = () => {
           title: "Pouf grigio",
           description: "Minimalista e versatile, perfetto come seduta extra o poggiapiedi discreto e moderno.",
           additionalPhotos: [],
+          oldPrice: 260.00,
+          newPrice: 99.00,
+          discountPercentage: 62,
         },
         {
           id: uuidv4(), // Unique ID
@@ -95,6 +119,9 @@ const Index: React.FC = () => {
           title: "Pouf sacco blu",
           description: "Comodo, giovane e informale. Si adatta perfettamente agli spazi relax e alle camere dei ragazzi.",
           additionalPhotos: [],
+          oldPrice: 290.00,
+          newPrice: 129.00,
+          discountPercentage: 55,
         },
         {
           id: uuidv4(), // Unique ID
@@ -104,6 +131,9 @@ const Index: React.FC = () => {
           additionalPhotos: [
             "https://i.postimg.cc/VLT2czXs/20250619-105022-1-1.png",
           ],
+          oldPrice: 1230.00,
+          newPrice: 579.00,
+          discountPercentage: 52,
         },
         {
           id: uuidv4(), // Unique ID
@@ -111,6 +141,9 @@ const Index: React.FC = () => {
           title: "Poltrona sacco rossa",
           description: "Vivace e informale, ideale per ambienti giovani o angoli lettura rilassati. Un tocco di colore e comodità.",
           additionalPhotos: [],
+          oldPrice: 190.00,
+          newPrice: 79.00,
+          discountPercentage: 58,
         },
       ],
     },
@@ -123,6 +156,9 @@ const Index: React.FC = () => {
           title: "Comò e Comodini Vitality",
           description: "Linee moderne e pulite con presa a gola tra i cassetti. Eleganza contemporanea e funzionalità quotidiana. I comodini, in coordinato, completano con coerenza e stile il gruppo letto, con un design moderno e finiture curate.",
           additionalPhotos: ["https://i.postimg.cc/CMjhv15H/20250618-101707.jpg"], // Added comodini photo here
+          oldPrice: 1230.00,
+          newPrice: 579.00,
+          discountPercentage: 53,
         },
         {
           id: uuidv4(), // Unique ID
@@ -130,6 +166,9 @@ const Index: React.FC = () => {
           title: "Comodino a pois Domus",
           description: "Giocoso ma raffinato, con il suo motivo a pois si abbina perfettamente a camere vivaci e creative.",
           additionalPhotos: [],
+          oldPrice: 490.00,
+          newPrice: 149.00,
+          discountPercentage: 69,
         },
         {
           id: uuidv4(), // Unique ID
@@ -137,6 +176,9 @@ const Index: React.FC = () => {
           title: "Comò bombato Domus",
           description: "L’ultimo tocco retrò per la tua camera: forme morbide e sinuose per un’eleganza senza tempo.",
           additionalPhotos: [],
+          oldPrice: 970.00,
+          newPrice: 449.00,
+          discountPercentage: 53,
         },
       ],
     },

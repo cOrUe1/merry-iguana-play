@@ -4,4 +4,7 @@ export interface Product {
   title: string;
   description: string;
   additionalPhotos: string[];
+  oldPrice?: number; // Optional old price
+  newPrice?: number; // Optional new price
+  discountPercentage?: number; // Optional discount percentage
 }

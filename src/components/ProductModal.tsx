@@ -45,11 +45,18 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose, product })
           <div className="py-4">
             <ProductImageCarousel photos={allPhotos} />
           </div>
+          {product.oldPrice && product.newPrice && product.discountPercentage !== undefined && (
+            <div className="mt-4 text-center">
+              <p className="text-xl text-muted-foreground line-through">Prezzo originale: € {product.oldPrice.toFixed(2).replace('.', ',')}</p>
+              <p className="text-4xl font-extrabold text-primary mt-2">Prezzo scontato: € {product.newPrice.toFixed(2).replace('.', ',')}</p>
+              <p className="text-lg text-green-600 font-semibold mt-1">Risparmi il {product.discountPercentage}%!</p>
+            </div>
+          )}
           {isSold ? (
-            <p className="text-red-600 text-sm font-semibold mt-4">Venduto</p>
+            <p className="text-red-600 text-sm font-semibold mt-4 text-center">Venduto</p>
           ) : (
             urgencyText && (
-              <p className="text-red-600 text-sm font-semibold mt-4">
+              <p className="text-red-600 text-sm font-semibold mt-4 text-center">
                 {urgencyText}
               </p>
             )
