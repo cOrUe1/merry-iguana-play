@@ -168,7 +168,7 @@ const Index: React.FC = () => {
           additionalPhotos: [],
           oldPrice: 490.00,
           newPrice: 149.00,
-          discountPercentage: 69,
+          discountPercentage: 70, // Updated from 69% to 70%
         },
         {
           id: uuidv4(), // Unique ID
