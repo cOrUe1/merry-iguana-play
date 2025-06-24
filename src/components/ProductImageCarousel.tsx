@@ -31,8 +31,11 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
     if (!emblaApi) return;
 
     const updateCarouselState = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
-      setScrollSnaps(emblaApi.scrollSnaps());
+      // Aggiungi controlli più robusti per assicurarti che i metodi siano disponibili
+      if (typeof emblaApi.selectedScrollSnap === 'function' && typeof emblaApi.scrollSnaps === 'function') {
+        setSelectedIndex(emblaApi.selectedScrollSnap());
+        setScrollSnaps(emblaApi.scrollSnaps());
+      }
     };
 
     emblaApi.on('init', updateCarouselState);
@@ -69,8 +72,8 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
         <>
           <Button
             className={cn(
-              "absolute left-2 top-1/2 -translate-y-1/2 z-10 rounded-full p-2 bg-primary text-primary-foreground hover:bg-primary/90",
-              // Rimosso "hidden md:flex" per renderle visibili su tutti gli schermi
+              "absolute left-2 top-1/2 -translate-y-1/2 z-10 rounded-full p-2 bg-primary text-primary-foreground hover:bg-primary/90"
+              // Le classi "hidden md:flex" sono state rimosse per rendere le frecce sempre visibili
             )}
             onClick={scrollPrev}
             variant="ghost"
@@ -80,8 +83,8 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
           </Button>
           <Button
             className={cn(
-              "absolute right-2 top-1/2 -translate-y-1/2 z-10 rounded-full p-2 bg-primary text-primary-foreground hover:bg-primary/90",
-              // Rimosso "hidden md:flex" per renderle visibili su tutti gli schermi
+              "absolute right-2 top-1/2 -translate-y-1/2 z-10 rounded-full p-2 bg-primary text-primary-foreground hover:bg-primary/90"
+              // Le classi "hidden md:flex" sono state rimosse per rendere le frecce sempre visibili
             )}
             onClick={scrollNext}
             variant="ghost"
