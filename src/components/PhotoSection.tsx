@@ -3,19 +3,19 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import ProductModal from './ProductModal';
-import { Product } from '@/types/product'; // Import the Product interface
-import { cn } from '@/lib/utils'; // Import cn for conditional class names
-import { useProductCardAnimation } from '@/hooks/useProductCardAnimation'; // Import the new hook
+import { Product } from '@/types/product';
+import { cn } from '@/lib/utils';
+import { useProductCardAnimation } from '@/hooks/useProductCardAnimation';
 
 interface PhotoSectionProps {
   title: string;
-  products: Product[]; // Changed from photos: string[] to products: Product[]
+  products: Product[];
 }
 
 const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products }) => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const activeProductId = useProductCardAnimation(products); // Use the new hook
+  const activeProductId = useProductCardAnimation(products);
 
   const handleCardClick = (product: Product) => {
     setSelectedProduct(product);
@@ -27,7 +27,6 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products }) => {
     setSelectedProduct(null);
   };
 
-  // Define products that are sold and should show "Esaurito"
   const soldProductTitles = ["Poseidone da 160", "Dionisio cover"];
 
   return (
@@ -38,7 +37,7 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products }) => {
           const isSold = soldProductTitles.includes(product.title);
           return (
             <Card
-              key={product.id} {/* Use product.id as key for better performance and stability */}
+              key={product.id}
               className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               onClick={() => handleCardClick(product)}
             >
@@ -48,7 +47,7 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products }) => {
                   alt={`${product.title} photo ${index + 1}`}
                   className={cn(
                     "w-full h-64 object-cover transition-transform duration-300",
-                    activeProductId === product.id && "scale-105" // Apply scale-105 if active
+                    activeProductId === product.id && "scale-105"
                   )}
                 />
                 <div className="p-4 text-center">
