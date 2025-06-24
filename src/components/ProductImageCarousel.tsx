@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { Button } from '@/components/ui/button';
@@ -25,37 +27,37 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
     if (emblaApi) emblaApi.scrollTo(index);
   }, [emblaApi]);
 
-  // Callback per aggiornare l'indice selezionato
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi, setSelectedIndex]);
 
-  // Effetto per inizializzare e aggiornare i scrollSnaps e l'indice selezionato
+  const updateScrollSnaps = useCallback(() => {
+    if (!emblaApi) return;
+    setScrollSnaps(emblaApi.scrollSnaps());
+  }, [emblaApi, setScrollSnaps]);
+
   useEffect(() => {
     if (!emblaApi) return;
 
-    // Funzione per aggiornare i pallini di navigazione
-    const updateScrollSnaps = () => {
-      setScrollSnaps(emblaApi.scrollSnaps());
+    // Define a function to initialize the carousel state
+    const initializeCarouselState = () => {
+      onSelect();
+      updateScrollSnaps();
     };
 
-    // Imposta l'indice iniziale e i pallini quando il carosello è inizializzato
-    onSelect();
-    updateScrollSnaps();
+    // Call initializeCarouselState on 'init' and 'reInit'
+    emblaApi.on('init', initializeCarouselState);
+    emblaApi.on('reInit', initializeCarouselState);
+    emblaApi.on('select', onSelect); // Keep select listener for index updates
 
-    // Aggiungi listener per gli eventi di Embla
-    emblaApi.on('select', onSelect);
-    emblaApi.on('reInit', onSelect);
-    emblaApi.on('reInit', updateScrollSnaps); // Aggiorna i pallini anche al re-inizializzazione
-
-    // Cleanup dei listener
+    // Cleanup listeners
     return () => {
+      emblaApi.off('init', initializeCarouselState);
+      emblaApi.off('reInit', initializeCarouselState);
       emblaApi.off('select', onSelect);
-      emblaApi.off('reInit', onSelect);
-      emblaApi.off('reInit', updateScrollSnaps);
     };
-  }, [emblaApi, onSelect]); // Dipendenze: emblaApi e onSelect
+  }, [emblaApi, onSelect, updateScrollSnaps]); // Dependencies for useEffect
 
   if (!photos || photos.length === 0) {
     return <div className="text-center text-muted-foreground py-8">Nessuna immagine disponibile.</div>;
