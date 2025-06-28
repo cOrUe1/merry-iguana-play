@@ -162,10 +162,10 @@ const Index: React.FC = () => {
       products: [
         {
           id: uuidv4(), // Unique ID
-          coverPhoto: "https://i.postimg.cc/4yTJfCL9/20250617-113607.jpg",
+          coverPhoto: "https://i.postimg.cc/prBmyxc5/como-vitality.png", // Updated cover photo
           title: "Comò e Comodini Vitality",
           description: "Linee moderne e pulite con presa a gola tra i cassetti. Eleganza contemporanea e funzionalità quotidiana. I comodini, in coordinato, completano con coerenza e stile il gruppo letto, con un design moderno e finiture curate.",
-          additionalPhotos: ["https://i.postimg.cc/CMjhv15H/20250618-101707.jpg"], // Added comodini photo here
+          additionalPhotos: ["https://i.postimg.cc/1R0nvcRR/comodino-vitality.png"], // Updated additional photo
           oldPrice: 1230.00,
           newPrice: 579.00,
           discountPercentage: 53,
