@@ -13,29 +13,30 @@ const ONE_HOUR_MS = 1 * 60 * 60 * 1000;
 // Function to generate 'X' (interested people) with specified probabilities
 const generateInterestedValue = (): number => {
   const rand = Math.random();
-  if (rand < 0.25) { // 25% chance for 3 or 4
-    return Math.random() < 0.5 ? 3 : 4;
-  } else { // 75% chance for 1 or 2
-    return Math.random() < 0.5 ? 1 : 2;
+  if (rand < 0.25) { // 25% chance for higher values (9-12)
+    return Math.floor(Math.random() * 4) + 9; // Generates 9, 10, 11, or 12
+  } else { // 75% chance for lower values (1-8)
+    return Math.floor(Math.random() * 8) + 1; // Generates 1, 2, ..., 8
   }
 };
 
-// Function to generate 'Y' (viewed by) with decreasing probability
+// Function to generate 'Y' (viewed by) with decreasing probability, up to 39
 const generateViewedValue = (): number => {
   const weights = [
-    1, 1, 1, 1, 1, // 5x for 1 (highest probability)
+    1, 1, 1, 1, 1, // 5x for 1
     2, 2, 2, 2,    // 4x for 2
     3, 3, 3,       // 3x for 3
     4, 4,          // 2x for 4
     5, 5,          // 2x for 5
-    6,             // 1x for 6
-    7,             // 1x for 7
-    8,             // 1x for 8
-    9,             // 1x for 9
-    10,            // 1x for 10
-    11,            // 1x for 11
-    12,            // 1x for 12
-    13             // 1x for 13 (lowest probability)
+    6, 6,          // 2x for 6
+    7, 7,          // 2x for 7
+    8, 8,          // 2x for 8
+    9, 9,          // 2x for 9
+    10, 10,        // 2x for 10
+    11, 12, 13, 14, 15, // 1x for 11-15
+    16, 17, 18, 19, 20, // 1x for 16-20
+    21, 22, 23, 24, 25, 26, 27, 28, 29, 30, // 1x for 21-30
+    31, 32, 33, 34, 35, 36, 37, 38, 39 // 1x for 31-39
   ];
   const randomIndex = Math.floor(Math.random() * weights.length);
   return weights[randomIndex];
@@ -93,9 +94,9 @@ export const useProductUrgency = (productId: string) => {
       if (currentData.type === 'interested') {
         if (now - currentData.lastUpdated > THREE_DAYS_MS) {
           if (Math.random() < 0.5) { // 50% chance to update
-            currentData.value = Math.min(4, currentData.value + 1); // Increment by 1, cap at 4
+            currentData.value = Math.min(12, currentData.value + 1); // Increment by 1, cap at 12 (tripled from 4)
           } else {
-            // If not updated, re-roll the value to ensure it's still within 1-4 range
+            // If not updated, re-roll the value to ensure it's still within 1-12 range
             currentData.value = generateInterestedValue();
           }
           currentData.lastUpdated = now;
