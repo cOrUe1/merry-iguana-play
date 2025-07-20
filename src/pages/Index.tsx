@@ -162,10 +162,10 @@ const Index: React.FC = () => {
       products: [
         {
           id: uuidv4(), // Unique ID
-          coverPhoto: "https://i.postimg.cc/prBmyxc5/como-vitality.png", // Updated cover photo
+          coverPhoto: "https://i.postimg.cc/gJsr3zp7/20250617-113607.jpg", // Updated cover photo
           title: "Comò e Comodini Vitality",
           description: "Linee moderne e pulite con presa a gola tra i cassetti. Eleganza contemporanea e funzionalità quotidiana. I comodini, in coordinato, completano con coerenza e stile il gruppo letto, con un design moderno e finiture curate.",
-          additionalPhotos: ["https://i.postimg.cc/1R0nvcRR/comodino-vitality.png"], // Updated additional photo
+          additionalPhotos: ["https://i.postimg.cc/zvfvjsXG/20250618-101707.jpg"], // Updated additional photo
           oldPrice: 1230.00,
           newPrice: 579.00,
           discountPercentage: 53,
@@ -201,7 +201,7 @@ const Index: React.FC = () => {
         <ImageCarousel photos={genericPhotos} />
         <ArmadiSection />
         {sectionsData.map((section) => ( // Removed index as key, using section.title
-          <PhotoSection key={section.title} title={section.title} products={section.products} />
+          <PhotoSection key={section.title} products={section.products} title={section.title} />
         ))}
       </main>
       <Footer />
