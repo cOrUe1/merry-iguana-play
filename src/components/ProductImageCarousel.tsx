@@ -23,9 +23,9 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
     if (!emblaApi) return;
 
     const updateCarouselState = () => {
-      if (typeof emblaApi.selectedScrollSnap === 'function' && typeof emblaApi.scrollSnaps === 'function') {
+      if (typeof emblaApi.selectedScrollSnap === 'function' && typeof emblaApi.scrollSnapList === 'function') {
         setSelectedIndex(emblaApi.selectedScrollSnap());
-        setScrollSnaps(emblaApi.scrollSnaps());
+        setScrollSnaps(emblaApi.scrollSnapList());
       }
     };
 

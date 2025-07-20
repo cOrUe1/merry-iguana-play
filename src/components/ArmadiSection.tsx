@@ -94,37 +94,48 @@ const ArmadiSection: React.FC = () => {
     setSelectedProduct(null);
   };
 
+  const soldProductTitles = ["Armadio Golf plus"]; // Added "Armadio Golf plus" here
+
   return (
     <section className="py-16 px-4 bg-background text-foreground">
       <h2 className="text-4xl font-bold text-center mb-12 text-primary">Armadi e scrivanie</h2>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {armadiProducts.map((product) => (
-          <Card
-            key={product.id}
-            className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-            onClick={() => handleCardClick(product)}
-          >
-            <CardContent className="p-0">
-              <AspectRatio ratio={4 / 3} className="w-full"> {/* Added AspectRatio */}
-                <img
-                  src={product.coverPhoto}
-                  alt={`${product.title} cover photo`}
-                  className={cn(
-                    "w-full h-full object-cover transition-transform duration-300", // Changed h-48 to h-full
-                    activeProductId === product.id && "scale-105"
-                  )}
-                />
-              </AspectRatio>
-              {product.oldPrice && product.newPrice && product.discountPercentage !== undefined && (
+        {armadiProducts.map((product) => {
+          const isSold = soldProductTitles.includes(product.title);
+          return (
+            <Card
+              key={product.id}
+              className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              onClick={() => handleCardClick(product)}
+            >
+              <CardContent className="p-0">
+                <AspectRatio ratio={4 / 3} className="w-full">
+                  <img
+                    src={product.coverPhoto}
+                    alt={`${product.title} cover photo`}
+                    className={cn(
+                      "w-full h-full object-cover transition-transform duration-300",
+                      activeProductId === product.id && "scale-105"
+                    )}
+                  />
+                </AspectRatio>
                 <div className="p-4 text-center">
-                  <p className="text-lg text-muted-foreground line-through">€ {product.oldPrice.toFixed(2).replace('.', ',')}</p>
-                  <p className="text-2xl font-bold text-primary">€ {product.newPrice.toFixed(2).replace('.', ',')}</p>
-                  <p className="text-sm text-green-600 font-semibold">Sconto del {product.discountPercentage}%</p>
+                  {isSold ? (
+                    <p className="text-red-600 text-xl font-bold">Esaurito</p>
+                  ) : (
+                    product.oldPrice && product.newPrice && product.discountPercentage !== undefined && (
+                      <>
+                        <p className="text-lg text-muted-foreground line-through">€ {product.oldPrice.toFixed(2).replace('.', ',')}</p>
+                        <p className="text-2xl font-bold text-primary">€ {product.newPrice.toFixed(2).replace('.', ',')}</p>
+                        <p className="text-sm text-green-600 font-semibold">Sconto del {product.discountPercentage}%</p>
+                      </>
+                    )
+                  )}
                 </div>
-              )}
-            </CardContent>
-          </Card>
-        ))}
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
       <ProductModal
         isOpen={isModalOpen}

@@ -21,7 +21,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose, product })
   const allPhotos = [product.coverPhoto, ...product.additionalPhotos];
 
   // Define products that are sold and should show "Esaurito"
-  const soldProductTitles = ["Poseidone da 160", "Dionisio cover", "Comò e Comodini Vitality"];
+  const soldProductTitles = ["Poseidone da 160", "Dionisio cover", "Comò e Comodini Vitality", "Armadio Golf plus"]; // Added "Armadio Golf plus" here
   const isSold = soldProductTitles.includes(product.title);
 
   const handleOpenBookingModal = () => {

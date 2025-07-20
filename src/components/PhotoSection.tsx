@@ -28,7 +28,7 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products }) => {
     setSelectedProduct(null);
   };
 
-  const soldProductTitles = ["Poseidone da 160", "Dionisio cover", "Comò e Comodini Vitality"];
+  const soldProductTitles = ["Poseidone da 160", "Dionisio cover", "Comò e Comodini Vitality", "Armadio Golf plus"]; // Added "Armadio Golf plus" here
 
   return (
     <section className="py-16 px-4 bg-background text-foreground">
