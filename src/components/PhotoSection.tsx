@@ -7,7 +7,7 @@ import { Product } from '@/types/product';
 import { cn } from '@/lib/utils';
 import { useProductCardAnimation } from '@/hooks/useProductCardAnimation';
 import { AspectRatio } from '@/components/ui/aspect-ratio'; // Import AspectRatio
-import SoldOverlay from './SoldOverlay'; // Import the new SoldOverlay component
+
 
 interface PhotoSectionProps {
   title: string;
@@ -54,7 +54,6 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products }) => {
                       isSold && "grayscale" // Apply grayscale if sold
                     )}
                   />
-                  {isSold && <SoldOverlay />} {/* Conditionally render SoldOverlay */}
                 </AspectRatio>
                 <div className="p-4 text-center">
                   {isSold ? (

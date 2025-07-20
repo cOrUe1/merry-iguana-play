@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid'; // Import uuid for unique IDs
 import { cn } from '@/lib/utils'; // Import cn for conditional class names
 import { useProductCardAnimation } from '@/hooks/useProductCardAnimation'; // Import the new hook
 import { AspectRatio } from '@/components/ui/aspect-ratio'; // Import AspectRatio
-import SoldOverlay from './SoldOverlay'; // Import the new SoldOverlay component
+
 
 const armadiProducts: Product[] = [
   {
@@ -120,7 +120,6 @@ const ArmadiSection: React.FC = () => {
                       isSold && "grayscale" // Apply grayscale if sold
                     )}
                   />
-                  {isSold && <SoldOverlay />} {/* Conditionally render SoldOverlay */}
                 </AspectRatio>
                 <div className="p-4 text-center">
                   {isSold ? (
