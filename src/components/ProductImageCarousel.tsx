@@ -5,6 +5,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { Button } from '@/components/ui/button'; 
 import { ChevronLeft, ChevronRight } from 'lucide-react'; 
 import { cn } from '@/lib/utils';
+import SoldOverlay from './SoldOverlay'; // Import the new SoldOverlay component
 
 interface ProductImageCarouselProps {
   photos: string[];
@@ -50,7 +51,7 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos, isS
       <div className="embla overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex">
           {photos.map((photo, index) => (
-            <div key={index} className="embla__slide flex-shrink-0 w-full">
+            <div key={index} className="embla__slide flex-shrink-0 w-full relative"> {/* Added relative positioning */}
               <img
                 src={photo}
                 alt={`Product photo ${index + 1}`}
@@ -59,6 +60,7 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos, isS
                   isSold && "grayscale" // Apply grayscale if isSold is true
                 )}
               />
+              {isSold && <SoldOverlay />} {/* Conditionally render SoldOverlay */}
             </div>
           ))}
         </div>
