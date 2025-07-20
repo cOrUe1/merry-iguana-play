@@ -9,13 +9,12 @@ const SoldOverlay: React.FC<SoldOverlayProps> = ({ className }) => {
   return (
     <div
       className={cn(
-        "absolute inset-0 flex items-center justify-center z-20 pointer-events-none",
+        "absolute inset-0 z-20 pointer-events-none", // Questo div copre l'intera area dell'immagine
         className
       )}
     >
       <div
-        className="bg-red-600 text-white font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl py-2 px-12 transform -rotate-45 opacity-90 whitespace-nowrap"
-        style={{ width: '150%', textAlign: 'center' }} // Ensure it covers the whole area
+        className="absolute top-0 left-0 right-0 bg-red-600 text-white font-bold text-xl sm:text-2xl md:text-3xl py-1 text-center opacity-70"
       >
         VENDUTO
       </div>
