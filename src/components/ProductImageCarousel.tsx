@@ -2,15 +2,16 @@
 
 import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { Button } from '@/components/ui/button'; // Mantenuto per sicurezza, ma non più usato per le frecce qui
-import { ChevronLeft, ChevronRight } from 'lucide-react'; // Mantenuto per sicurezza, ma non più usato per le frecce qui
+import { Button } from '@/components/ui/button'; 
+import { ChevronLeft, ChevronRight } from 'lucide-react'; 
 import { cn } from '@/lib/utils';
 
 interface ProductImageCarouselProps {
   photos: string[];
+  isSold?: boolean; // New prop to indicate if the product is sold
 }
 
-const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) => {
+const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos, isSold }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
@@ -53,7 +54,10 @@ const ProductImageCarousel: React.FC<ProductImageCarouselProps> = ({ photos }) =
               <img
                 src={photo}
                 alt={`Product photo ${index + 1}`}
-                className="w-full h-96 object-contain"
+                className={cn(
+                  "w-full h-96 object-contain",
+                  isSold && "grayscale" // Apply grayscale if isSold is true
+                )}
               />
             </div>
           ))}

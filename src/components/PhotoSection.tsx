@@ -28,7 +28,7 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products }) => {
     setSelectedProduct(null);
   };
 
-  const soldProductTitles = ["Poseidone da 160", "Dionisio cover", "Comò e Comodini Vitality", "Armadio Golf plus"]; // Added "Armadio Golf plus" here
+  const soldProductTitles = ["Poseidone da 160", "Dionisio cover", "Comò e Comodini Vitality", "Armadio Golf plus"]; 
 
   return (
     <section className="py-16 px-4 bg-background text-foreground">
@@ -49,7 +49,8 @@ const PhotoSection: React.FC<PhotoSectionProps> = ({ title, products }) => {
                     alt={`${product.title} photo ${index + 1}`}
                     className={cn(
                       "w-full h-full object-cover transition-transform duration-300", // Changed h-64 to h-full
-                      activeProductId === product.id && "scale-105"
+                      activeProductId === product.id && "scale-105",
+                      isSold && "grayscale" // Apply grayscale if sold
                     )}
                   />
                 </AspectRatio>

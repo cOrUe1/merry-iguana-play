@@ -94,7 +94,7 @@ const ArmadiSection: React.FC = () => {
     setSelectedProduct(null);
   };
 
-  const soldProductTitles = ["Armadio Golf plus"]; // Added "Armadio Golf plus" here
+  const soldProductTitles = ["Armadio Golf plus"]; 
 
   return (
     <section className="py-16 px-4 bg-background text-foreground">
@@ -115,7 +115,8 @@ const ArmadiSection: React.FC = () => {
                     alt={`${product.title} cover photo`}
                     className={cn(
                       "w-full h-full object-cover transition-transform duration-300",
-                      activeProductId === product.id && "scale-105"
+                      activeProductId === product.id && "scale-105",
+                      isSold && "grayscale" // Apply grayscale if sold
                     )}
                   />
                 </AspectRatio>
