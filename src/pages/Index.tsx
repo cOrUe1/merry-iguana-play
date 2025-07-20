@@ -48,13 +48,13 @@ const Index: React.FC = () => {
         },
         {
           id: uuidv4(), // Unique ID
-          coverPhoto: "https://i.postimg.cc/fWHXRB7r/20250617-113502.png",
+          coverPhoto: "https://i.postimg.cc/y6fkd8vg/20250617-113502.png", // Updated cover photo
           title: "Poseidone da 160",
           description: "Linee leggere e moderne, con giroletto basso e piedini alti che slanciano la struttura. Un letto che arreda con discrezione e stile.",
           additionalPhotos: [],
-          oldPrice: 1524.10, // Assuming this is the correct old price for Poseidone
-          newPrice: 999.00, // Assuming this is the correct new price for Poseidone
-          discountPercentage: 35, // Assuming this is the correct discount for Poseidone
+          oldPrice: 1524.10,
+          newPrice: 999.00,
+          discountPercentage: 35,
         },
         {
           id: uuidv4(), // Unique ID
@@ -68,13 +68,13 @@ const Index: React.FC = () => {
         },
         {
           id: uuidv4(), // Unique ID
-          coverPhoto: "https://i.postimg.cc/7YfzG0mY/Chat-GPT-Image-18-giu-2025-11-40-37.png",
+          coverPhoto: "https://i.postimg.cc/GtS2SXHJ/20250617-113348.jpg", // Updated cover photo
           title: "Dionisio cover",
           description: "Contenitore robusto in multistrato con alzata semplice, rivestimento sfoderabile e una testiera con cover double face: tono su tono da un lato, a contrasto dall’altro.",
           additionalPhotos: [],
-          oldPrice: 1524.10, // Assuming this is the correct old price for Dionisio
-          newPrice: 999.00, // Assuming this is the correct new price for Dionisio
-          discountPercentage: 35, // Assuming this is the correct discount for Dionisio
+          oldPrice: 1524.10,
+          newPrice: 999.00,
+          discountPercentage: 35,
         },
       ],
     },
