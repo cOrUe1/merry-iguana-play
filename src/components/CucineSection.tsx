@@ -36,9 +36,9 @@ const cucineProducts: Product[] = [
       "https://i.postimg.cc/W4JZkdX1/20250721-092833.jpg",
       "https://i.postimg.cc/wx5h2sHt/20250721-092844.jpg",
     ],
-    oldPrice: 16240.00,
+    oldPrice: 17805.00,
     newPrice: 7299.00,
-    discountPercentage: 55,
+    discountPercentage: 59,
   },
   {
     id: uuidv4(),
