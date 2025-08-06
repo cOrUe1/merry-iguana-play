@@ -20,9 +20,9 @@ const cucineProducts: Product[] = [
       "https://i.postimg.cc/NGxHmq7m/20250703-174632-3.jpg",
       "https://i.postimg.cc/d3JZp4vh/20250703-174616-1-2.jpg",
     ],
-    oldPrice: 12545.00,
+    oldPrice: 15330.00,
     newPrice: 6899.00,
-    discountPercentage: 45,
+    discountPercentage: 55,
   },
   {
     id: uuidv4(),
@@ -36,9 +36,9 @@ const cucineProducts: Product[] = [
       "https://i.postimg.cc/W4JZkdX1/20250721-092833.jpg",
       "https://i.postimg.cc/wx5h2sHt/20250721-092844.jpg",
     ],
-    oldPrice: 12807.00,
+    oldPrice: 16240.00,
     newPrice: 7299.00,
-    discountPercentage: 43,
+    discountPercentage: 55,
   },
   {
     id: uuidv4(),
@@ -50,9 +50,9 @@ const cucineProducts: Product[] = [
       "https://i.postimg.cc/dDchK68M/20250703-171009.jpg",
       "https://i.postimg.cc/8kjnKStQ/20250703-171020.jpg",
     ],
-    oldPrice: 15083.00,
+    oldPrice: 22247.00,
     newPrice: 8899.00,
-    discountPercentage: 41,
+    discountPercentage: 60,
   },
   {
     id: uuidv4(),
@@ -64,9 +64,9 @@ const cucineProducts: Product[] = [
       "https://i.postimg.cc/fT2SqcPb/20250703-174107-3.jpg",
       "https://i.postimg.cc/mgPzvcxy/20250703-174113-3.jpg",
     ],
-    oldPrice: 6705.00,
+    oldPrice: 8665.00,
     newPrice: 3899.00,
-    discountPercentage: 42,
+    discountPercentage: 55,
   },
 ];
 
