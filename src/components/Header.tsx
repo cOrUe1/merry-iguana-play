@@ -1,22 +1,22 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Header: React.FC = () => {
   return (
-    <header className="text-center py-16 px-4 bg-background text-foreground">
-      <img
-        src="https://i.postimg.cc/vBzrzXwp/Mobili-Corazzi-Logo-2019-1-1-1.png"
-        alt="Mobili Corazzi Logo"
-        className="mx-auto mb-6 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto"
-      />
-      <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 text-primary font-serif">
-        FUORI TUTTO CAMERE
-      </h2>
-      <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-        Abbiamo deciso di lasciare spazio al nuovo, ma chi coglie l’occasione adesso, porta a casa arredo di design, <em>montato da noi</em>, pronto per casa tua, <em>da subito</em>… e a un <em>prezzo irripetibile</em>.
-      </p>
-      <p className="text-2xl md:text-3xl font-bold text-primary mb-8">
-          Sconti fino al <span className="text-4xl md:text-5xl font-extrabold">70%</span>
-        </p>
+    <header className="relative w-full h-[500px] bg-cover bg-center flex items-center justify-center text-white" style={{ backgroundImage: "url('https://i.postimg.cc/mk001111/20250617-113300.jpg')" }}>
+      <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay scuro */}
+      <div className="relative z-10 text-center p-4">
+        <Image
+          src="https://i.postimg.cc/W1011111/logo-trasparente.png"
+          alt="Logo Fuori Tutto"
+          width={150}
+          height={150}
+          className="mx-auto mb-4"
+        />
+        <h1 className="text-5xl md:text-7xl font-extrabold mb-2 drop-shadow-lg">FUORI TUTTO</h1>
+        <p className="text-2xl md:text-3xl font-semibold mb-4 drop-shadow-md">Sconti fino al 70% su tutti i prodotti!</p>
+        <p className="text-lg md:text-xl drop-shadow-sm">Arreda la tua casa con stile e risparmio.</p>
+      </div>
     </header>
   );
 };
