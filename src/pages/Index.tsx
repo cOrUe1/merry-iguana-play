@@ -4,6 +4,7 @@ import ImageCarousel from '@/components/ImageCarousel';
 import PhotoSection from '@/components/PhotoSection';
 import Footer from '@/components/Footer';
 import ArmadiSection from '@/components/ArmadiSection';
+import CucineSection from '@/components/CucineSection'; // Importa la nuova sezione Cucine
 import { Product } from '@/types/product';
 import { v4 as uuidv4 } from 'uuid'; // Import uuid for unique IDs
 
@@ -199,6 +200,7 @@ const Index: React.FC = () => {
       <Header />
       <main className="flex-grow">
         <ImageCarousel photos={genericPhotos} />
+        <CucineSection /> {/* Aggiunta la sezione Cucine qui */}
         <ArmadiSection />
         {sectionsData.map((section) => ( // Removed index as key, using section.title
           <PhotoSection key={section.title} products={section.products} title={section.title} />
