@@ -28,8 +28,8 @@ const Header: React.FC = () => {
           e a un <em>prezzo irripetibile</em>.
         </p>
 
-        {/* “Sconti fino al 70%”: dimensioni variabili su mobile/desktop */}
-        <div className="flex flex-col sm:flex-row items-baseline justify-center">
+        {/* “Sconti fino al 70%”: dimensioni variabili su mobile/desktop, centrato */}
+        <div className="flex flex-col sm:flex-row items-center sm:items-baseline justify-center">
           <span className="text-[1.5rem] sm:text-[1.75rem] md:text-[2rem] lg:text-[2.5rem] font-bold">
             Sconti fino al
           </span>
