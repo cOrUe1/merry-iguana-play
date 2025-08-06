@@ -3,8 +3,8 @@ import React from 'react';
 const Header: React.FC = () => {
   return (
     <header className="relative w-full bg-white flex flex-col items-center justify-center text-gray-900 py-16">
-      <div className="relative z-10 text-center p-4 max-w-3xl">
-        {/* Logo sostituito e ulteriormente ingrandito */}
+      <div className="relative z-10 text-center p-4 max-w-[900px]">
+        {/* Logo sostituito e ingrandito */}
         <img
           src="https://i.postimg.cc/y8qQLnNY/2019.png"
           alt="Logo Fuori Tutto"
@@ -19,10 +19,13 @@ const Header: React.FC = () => {
           FUORI TUTTO
         </h1>
 
-        {/* Descrizione grigia, ridotta e in max 3 righe con parole in italic */}
-        <p className="text-[1.25rem] md:text-[1.75rem] text-[#64748B] mb-6 drop-shadow-md max-w-[800px] leading-snug">
-          Abbiamo deciso di lasciare spazio al nuovo, ma chi coglie l’occasione adesso, porta a casa arredo di design, <em>montato da noi</em>,<br />
-          pronto per casa tua, <em>da subito</em>… e a un <em>prezzo irripetibile</em>.
+        {/* Descrizione grigia in esattamente 3 righe con italic*/}
+        <p
+          className="text-[1.2rem] md:text-[1.6rem] text-[#64748B] mb-6 leading-snug drop-shadow-md"
+        >
+          Abbiamo deciso di lasciare spazio al nuovo, ma chi coglie l’occasione adesso, porta a casa arredo di design,<br />
+          <em>montato da noi</em>, pronto per casa tua, <em>da subito</em>…<br />
+          e a un <em>prezzo irripetibile</em>.
         </p>
 
         {/* “Sconti fino al 70%” */}
