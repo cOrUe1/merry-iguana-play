@@ -6,13 +6,13 @@ const Header: React.FC = () => {
       <div className="absolute inset-0 bg-black opacity-50"></div> {/* Overlay scuro */}
       <div className="relative z-10 text-center p-4">
         <img
-          src="https://i.postimg.cc/W1011111/logo-trasparente.png"
+          src="https://i.postimg.cc/sXZmsrBd/Mobili-Corazzi-Logo-nuovo2019.png"
           alt="Logo Fuori Tutto"
           className="mx-auto mb-4 w-[150px] h-[150px]"
         />
         <h1 className="text-5xl md:text-7xl font-extrabold mb-2 drop-shadow-lg">FUORI TUTTO</h1>
-        <p className="text-2xl md:text-3xl font-semibold mb-4 drop-shadow-md">Sconti fino al 70% su tutti i prodotti!</p>
-        <p className="text-lg md:text-xl drop-shadow-sm">Arreda la tua casa con stile e risparmio.</p>
+        <p className="text-2xl md:text-3xl font-semibold mb-4 drop-shadow-md">Abbiamo deciso di lasciare spazio al nuovo, ma chi coglie l’occasione adesso, porta a casa arredo di design, montato da noi, pronto per casa tua, da subito… e a un prezzo irripetibile.</p>
+        <p className="text-lg md:text-xl drop-shadow-sm">Sconti fino al 70%</p>
       </div>
     </header>
   );
