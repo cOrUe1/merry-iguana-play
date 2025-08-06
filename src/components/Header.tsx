@@ -30,7 +30,7 @@ const Header: React.FC = () => {
           className="
             text-[1.75rem]    /* ~28px */
             md:text-[2.25rem] /* ~36px */
-            font-normal
+            font-Playfair Display
             mb-6
           "
         >
