@@ -91,6 +91,7 @@ const CucineSection: React.FC = () => {
   return (
     <section className="py-16 px-4 bg-background text-foreground">
       <h2 className="text-4xl font-bold text-center mb-12 text-primary">Cucine</h2>
+       <p className="text-center text-sm text-gray-500 mb-12">elettrodomestici esclusi*</p>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {cucineProducts.map((product) => {
           const isSold = soldProductTitles.includes(product.title);
