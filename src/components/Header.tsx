@@ -2,51 +2,37 @@ import React from 'react';
 
 const Header: React.FC = () => {
   return (
-    <header
-      className="relative w-full bg-white flex flex-col items-center justify-center text-gray-900 py-16"
-    >
+    <header className="relative w-full bg-white flex flex-col items-center justify-center text-gray-900 py-16">
       <div className="relative z-10 text-center p-4 max-w-2xl">
-        {/* logo molto più grande */}
+        {/* Logo ulteriormente ingrandito */}
         <img
           src="https://i.postimg.cc/sXZmsrBd/Mobili-Corazzi-Logo-nuovo2019.png"
           alt="Logo Fuori Tutto"
-          className="mx-auto mb-6 w-[300px] h-auto object-contain"
+          className="mx-auto mb-6 w-[400px] h-auto object-contain"
         />
 
-        {/* titolo */}
+        {/* Titolo “FUORI TUTTO” senza accapo, leggermente più piccolo, font Playfair Display */}
         <h1
-          className="
-            text-[5.5rem]    /* ~88px */
-            md:text-[7rem]  /* ~112px su schermi grandi */
-            font-extrabold
-            mb-4
-          "
+          className="text-[5rem] md:text-[6.5rem] font-semibold mb-4 drop-shadow-lg"
+          style={{ fontFamily: 'Playfair Display, serif' }}
         >
           FUORI TUTTO
         </h1>
 
-        {/* descrizione */}
-        <p
-          className="
-            text-[1.75rem]    /* ~28px */
-            md:text-[2.25rem] /* ~36px */
-            font-Playfair Display
-            mb-6
-          "
-        >
+        {/* Paragrafo colore #64748B e dimensione ridotta */}
+        <p className="text-[1.5rem] md:text-[2rem] text-[#64748B] mb-6 drop-shadow-md">
           Abbiamo deciso di lasciare spazio al nuovo, ma chi coglie l’occasione adesso, porta a casa arredo di design, montato da noi, pronto per casa tua, da subito… e a un prezzo irripetibile.
         </p>
 
-        {/* sconto */}
-        <p
-          className="
-            text-[1.5rem]    /* ~24px */
-            md:text-[2rem]  /* ~32px */
-            font-bold
-          "
-        >
-          Sconti fino al 70%
-        </p>
+        {/* “Sconti fino al 70%” ingrandito, con “70%” ancora più grande */}
+        <div className="flex items-baseline justify-center">
+          <span className="text-[2rem] md:text-[2.5rem] font-bold">
+            Sconti fino al
+          </span>
+          <span className="ml-2 text-[3rem] md:text-[3.5rem] font-bold">
+            70%
+          </span>
+        </div>
       </div>
     </header>
   );
